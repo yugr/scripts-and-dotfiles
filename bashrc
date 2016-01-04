@@ -83,6 +83,8 @@ alias gtrh='git reset --hard'
 alias gtrb='git rebase'
 alias gtcp='git cherry-pick'
 alias gtpl='git pull'
+alias gtan='git annotate'
+alias gtcl='git clone'
 
 alias c=gcc c+=g++
 
