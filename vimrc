@@ -14,8 +14,9 @@ set scrolloff=3
 "set number
 "set paste
 
-set novisualbell
 set noerrorbells
+set visualbell
+set t_vb=
 
 set lazyredraw
 set ttyfast
