@@ -89,3 +89,4 @@ alias gtcl='git clone'
 
 alias c=gcc c+=g++
 
+export PATH=$HOME/bin${PATH:+:$PATH}
