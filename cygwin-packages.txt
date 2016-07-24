@@ -6,3 +6,4 @@ Additional Cygwin packages to install:
 * python, perl
 * git, subversion, mercurial
 * wget, openssh, vim, dos2unix, manpages, bzip2
+* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
