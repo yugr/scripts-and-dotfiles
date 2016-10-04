@@ -13,6 +13,7 @@ set background=dark
 set scrolloff=3
 "set number
 "set paste
+set complete-=i  "Too slow...
 
 set noerrorbells
 set visualbell
