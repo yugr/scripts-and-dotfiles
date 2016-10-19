@@ -53,6 +53,22 @@ cdmd() {
 	fi
 }
 
+yell() {
+  local msg="Cygwin (pid $$)"
+  if test -n "$1"; then
+    msg="${msg} says: $1"
+  fi
+  case $(uname -o) in
+  Cygwin)
+    rundll32 user32.dll,MessageBeep
+    msg \* "$msg"
+    ;;
+  *)
+    echo >&2 "Don't know how to notify on $(uname -o)"
+    ;;
+  esac
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='make install' mp='nice make -j10' mpi='nice make -j10 install' mck='nice make -k check' mpck='nice make -k -j10 check'
