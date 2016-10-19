@@ -56,6 +56,7 @@ cdmd() {
 export VISUAL='vim -f'
 
 alias m='nice make' mi='make install' mp='nice make -j10' mpi='nice make -j10 install' mck='nice make -k check' mpck='nice make -k -j10 check'
+alias mkdircd=cdmd
 alias v=vim vd=vimdiff v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
 alias f=find fn='find . -name'
 alias g=goodgrep gr='goodgrep -r' gh=grephere
