@@ -54,7 +54,7 @@ cdmd() {
 }
 
 yell() {
-  local msg="Cygwin (pid $$)"
+  local msg="Bash (pid $$)"
   if test -n "$1"; then
     msg="${msg} says: $1"
   fi
@@ -69,12 +69,31 @@ yell() {
   esac
 }
 
+# "fn $D $P ..." -> "find $D -name $P ..."
+fn() {
+  if test $# -lt 2; then
+    echo >&2 "Usage: fn DIR PATTERN"
+    return 1
+  fi
+
+  case "$2" in
+  -*)
+    find "$@"
+    ;;
+  *)
+    local D="$1"
+    shift
+    find "$D" -name "$@"
+    ;;
+  esac
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='make install' mp='nice make -j10' mpi='nice make -j10 install' mck='nice make -k check' mpck='nice make -k -j10 check'
 alias mkdircd=cdmd
 alias v=vim vd=vimdiff v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
-alias f=find fn='find . -name'
+alias f=find
 alias g=goodgrep gr='goodgrep -r' gh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A'
 alias fgfg=fg fg1='fg 1' fg2='fg 2' fg3='fg 3' fg4='fg 4'
