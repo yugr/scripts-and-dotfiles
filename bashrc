@@ -22,6 +22,7 @@ persistent_history()
 	if [ -z "$1" ]; then
 		cat $HOME/.persistent_history
 	else
+		local N
 		N=-10
 		case "$1" in
 		-[0-9]*)
@@ -35,6 +36,7 @@ persistent_history()
 
 export PROMPT_COMMAND="run_on_prompt_command"
 
+# Ignore common trash
 goodgrep() {
 	grep --exclude=tags --exclude=cscope\* --exclude-dir .svn --exclude-dir .git "$@"
 }
@@ -53,6 +55,7 @@ cdmd() {
 	fi
 }
 
+# Signal loudly about completion
 yell() {
   local msg="Bash (pid $$)"
   if test -n "$1"; then
@@ -69,23 +72,43 @@ yell() {
   esac
 }
 
-# "fn $D $P ..." -> "find $D -name $P ..."
-fn() {
-  if test $# -lt 2; then
-    echo >&2 "Usage: fn DIR PATTERN"
-    return 1
-  fi
+# Remove Cygwin's stuff from PATH
+# (useful for running bat files in canonical environment)
+cygtrimpath() {
+  local OLD_IFS
+  local NEWPATH
 
-  case "$2" in
-  -*)
-    find "$@"
+  OLD_IFS=$IFS
+  IFS=:
+
+  NEWPATH=
+  for d in $PATH; do
+    if echo $d | grep -qv '^/\(usr\|bin\)'; then
+      NEWPATH="${NEWPATH:+$NEWPATH:}$d"
+    fi
+  done
+
+  PATH="$NEWPATH"
+}
+
+# "fn [$D] $P" -> "find [$D] -name $P"
+fn() {
+  local D
+  case $# in
+  1)
+    D=.
+    ;;
+  2)
+    D="$1"
+    shift
     ;;
   *)
-    local D="$1"
-    shift
-    find "$D" -name "$@"
+    echo >&2 "Usage: fn DIR PATTERN"
+    return 1
     ;;
   esac
+
+  find "$D" -name "$1"
 }
 
 export VISUAL='vim -f'
