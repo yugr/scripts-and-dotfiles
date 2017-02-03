@@ -5,7 +5,7 @@ Additional Cygwin packages to install:
 * bison, flex
 * python, perl
 * git, subversion, mercurial
-* wget, openssh, vim, dos2unix, manpages, bzip2, zip
+* wget, openssh, screen, vim, dos2unix, manpages, bzip2, zip
 * apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
 
 Also install SysInternals.
