@@ -111,6 +111,25 @@ fn() {
   find "$D" -name "$1"
 }
 
+# "fromto M N" - print lines in [M, N] (inclusive) interval
+# "fromto M +N" - print N lines following M (inclusive)
+fromto() {
+  local span
+  case "$2" in
+  +*)
+    span=$(echo "$2" | sed 's/^.//')
+    ;;
+  *)
+    if test "$2" -ge "$1"; then
+      span=$(($2 - $1 + 1))
+    else
+      span=0
+    fi
+    ;;
+  esac
+  tail -n +"$1" | head -n $span
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='make install' mp='nice make -j10' mpi='nice make -j10 install' mck='nice make -k check' mpck='nice make -k -j10 check'
