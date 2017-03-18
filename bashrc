@@ -130,6 +130,24 @@ fromto() {
   tail -n +"$1" | head -n $span
 }
 
+# Nested kill
+killl() {
+  if test $# -ne 1 -a $# -ne 2; then
+    echo >&2 "Usage: killl [-SIG] PID"
+    return 1
+  elif test $# eq 2; then
+    S=$1
+    P=$2
+  else
+    S=
+    P=$1
+  fi
+  for P in $(pgrep -p $P); do
+    killl $S $P
+  done
+  kill $S $P
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='make install' mp='nice make -j10' mpi='nice make -j10 install' mck='nice make -k check' mpck='nice make -k -j10 check'
