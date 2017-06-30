@@ -132,20 +132,32 @@ fromto() {
 
 # Nested kill
 killl() {
+  local status sig pid
+
   if test $# -ne 1 -a $# -ne 2; then
     echo >&2 "Usage: killl [-SIG] PID"
     return 1
-  elif test $# eq 2; then
-    S=$1
-    P=$2
+  elif test $# = 2; then
+    sig=$1
+    pid=$2
   else
-    S=
-    P=$1
+    pid=$1
+    sig=-TERM
   fi
-  for P in $(pgrep -p $P); do
-    killl $S $P
+
+  status=0
+
+  # Stop parent so that it does not respawn children
+  kill -SIGSTOP $pid || status=1
+
+  for kid in $(ps -o pid --no-headers --ppid $pid); do
+    killl $sig $kid || status=1
   done
-  kill $S $P
+
+  # Need to continue stopped process so that system can kill it
+  kill $sig $pid && kill -SIGCONT $pid || status=1
+
+  return $status
 }
 
 export VISUAL='vim -f'
