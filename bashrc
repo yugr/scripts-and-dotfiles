@@ -34,7 +34,7 @@ persistent_history()
 	fi
 }
 
-export PROMPT_COMMAND="run_on_prompt_command"
+PROMPT_COMMAND=run_on_prompt_command
 
 # Ignore common trash
 goodgrep() {
