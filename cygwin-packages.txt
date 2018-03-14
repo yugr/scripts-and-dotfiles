@@ -1,11 +1,12 @@
-Additional Cygwin packages to install:
+Additional packages to install:
 * gcc, g++, gdb
 * make, cmake, autoconf, automake
 * ctags, patch, patchutils
 * bison, flex
 * python, perl
-* git, subversion, mercurial
-* wget, openssh, screen, vim, dos2unix, manpages, bzip2, zip
-* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
+* git, subversion
+* wget, curl, openssh, screen, vim, dos2unix, manpages, bzip2, zip
 
-Also install SysInternals.
+For Cygwin also install:
+* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
+* Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
