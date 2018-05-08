@@ -194,6 +194,7 @@ alias gtcp='git cherry-pick'
 alias gtpl='git pull'
 alias gtan='git annotate'
 alias gtcl='git clone'
+alias gtsb='git show-branch'
 
 alias c=gcc c+=g++
 
