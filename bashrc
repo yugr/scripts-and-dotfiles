@@ -160,6 +160,15 @@ killl() {
   return $status
 }
 
+gitall() {
+  for repo in *; do
+    if test -d $repo/.git; then
+      echo "=== Running in $repo..."
+      (cd $repo && git "$@") || echo '  FAILED'
+    fi
+  done
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
@@ -191,12 +200,14 @@ alias gtr='git reset'
 alias gtrh='git reset --hard'
 alias gtrb='git rebase'
 alias gtrbc='git rebase --continue'
+alias gtrbi='git rebase -i'
 alias gtcp='git cherry-pick'
 alias gtcpc='git cherry-pick --continue'
 alias gtpl='git pull'
 alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
+alias gtft='git fetch'
 
 alias c=gcc c+=g++
 
