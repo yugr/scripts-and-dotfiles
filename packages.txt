@@ -7,6 +7,9 @@ Additional packages to install:
 * git subversion
 * wget curl openssh screen vim dos2unix manpages bzip2 zip
 
+Python packages:
+* virtualenv pylint tox
+
 For Cygwin also install:
 * apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
 * Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
