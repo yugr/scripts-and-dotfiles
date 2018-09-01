@@ -1,11 +1,11 @@
 Additional packages to install:
-* gcc, g++, gdb
-* make, cmake, autoconf, automake
-* ctags, patch, patchutils
-* bison, flex
-* python, perl
-* git, subversion
-* wget, curl, openssh, screen, vim, dos2unix, manpages, bzip2, zip
+* gcc g++ gdb
+* make cmake autoconf automake
+* ctags patch patchutils
+* bison flex
+* python2 python3 perl
+* git subversion
+* wget curl openssh screen vim dos2unix manpages bzip2 zip
 
 For Cygwin also install:
 * apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
