@@ -1,6 +1,7 @@
 Additional packages to install:
 * gcc g++ gdb
-* make cmake autoconf automake
+* make cmake
+* autoconf automake autogen autopoint libtool
 * ctags patch patchutils
 * bison flex
 * python python3 python-pip python3-pip perl
