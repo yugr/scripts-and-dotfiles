@@ -6,6 +6,7 @@ log_bash_persistent_history()
   local date_part=`history 1 | awk '{ print $1 }'`
   local command_part=`history 1 | awk '{ $1=""; print $0 }'`
   if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]; then
+    command_part="$PWD: $command_part"
     echo $date_part "|" "$command_part" >> ~/.persistent_history
     export PERSISTENT_HISTORY_LAST="$command_part"
   fi
