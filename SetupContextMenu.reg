@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\directory\Background\shell\Open in Cygwin\command]
+@="C:\\cygwin64\\bin\\mintty.exe -i /Cygwin-Terminal.ico -e /bin/xhere /bin/bash.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\directory\Background\shell\Open in Cygwin]
+"Icon"="C:\\cygwin64\\Cygwin-Terminal.ico"
+
+[HKEY_CURRENT_USER\Software\Classes\directory\shell\Open in Cygwin\command]
+@="C:\\cygwin64\\bin\\mintty.exe -i /Cygwin-Terminal.ico -e /bin/xhere /bin/bash.exe"
+
+[HKEY_CURRENT_USER\Software\Classes\directory\shell\Open in Cygwin]
+"Icon"="C:\\cygwin64\\Cygwin-Terminal.ico"

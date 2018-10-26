@@ -14,3 +14,4 @@ Python packages:
 For Cygwin also install:
 * apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
 * Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
+* chere and run SetupContextMenu.reg
