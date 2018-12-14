@@ -46,8 +46,12 @@ grephere() {
 	goodgrep -R "$@" .
 }
 
-vimall() {
-	vim $(find -name "$1")
+vimfind() {
+	vim $(find ${2:-.} -name "$1")
+}
+
+vimgrep() {
+	vim $(grep -r -l -i "$1" ${2:-.}) +':set ic hls' +1 +/"$1"
 }
 
 cdmd() {
@@ -174,7 +178,7 @@ export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
 alias mkdircd=cdmd
-alias v=vim vd=vimdiff v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
+alias v=vim vd='vimdiff +":set hls" ' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
 alias f=find
 alias g=goodgrep gr='goodgrep -r' gh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A'
