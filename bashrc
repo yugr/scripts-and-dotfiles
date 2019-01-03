@@ -177,14 +177,15 @@ gitall() {
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
-alias mkdircd=cdmd
+alias md='mkdir -p'
 alias v=vim vd='vimdiff +":set hls" ' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
 alias f=find
 alias g=goodgrep gr='goodgrep -r' gh=grephere
-alias l='ls -CF' ll='ls -lh' la='ls -A'
+alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
 alias fgfg=fg fg1='fg 1' fg2='fg 2' fg3='fg 3' fg4='fg 4'
 alias bg1='bg 1' bg2='bg 2' bg3='bg 3' bg4='bg 4'
 alias ww=which
+alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
 
 # TODO: forward Git autocompletions
 alias gtco='git checkout'
@@ -195,6 +196,7 @@ alias gtst='git status'
 alias gtsh='git show'
 alias gtb='git branch'
 alias gtba='git branch -a'
+alias gtbd='git branch -D'
 alias gtl='git log'
 alias gtlg='git log --graph'
 alias gta='git add'
@@ -213,6 +215,7 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+alias gtpom='git push -u origin master'
 
 alias c=gcc c+=g++
 
