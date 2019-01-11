@@ -215,6 +215,7 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+alias gtpo='git push -u origin'
 alias gtpom='git push -u origin master'
 
 alias c=gcc c+=g++
