@@ -1,6 +1,5 @@
-# Persistent history stuff borrowed from Eli Benderski
+# Borrowed from Eli Benderski
 # (http://eli.thegreenplace.net/2013/06/11/keeping-persistent-history-in-bash)
-
 log_bash_persistent_history()
 {
   local date_part=`history 1 | awk '{ print $1 }'`
@@ -172,6 +171,14 @@ gitall() {
       (cd $repo && git "$@") || echo '  FAILED'
     fi
   done
+}
+
+cygtab() {
+  local STARTUP=$(mktemp)
+  echo "rm -f $STARTUP" >> $STARTUP
+  set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
+  echo "cd $PWD" >> $STARTUP
+  cygstart mintty bash --init-file $STARTUP
 }
 
 export VISUAL='vim -f'
