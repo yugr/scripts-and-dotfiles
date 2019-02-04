@@ -185,7 +185,7 @@ export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
 alias md='mkdir -p'
-alias v=vim vd='vimdiff +":set hls" ' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
+alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O'
 alias f=find
 alias g=goodgrep gr='goodgrep -r' gh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
