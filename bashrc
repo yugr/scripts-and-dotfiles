@@ -222,8 +222,10 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+
 gtpo() {
-  git push -u origin $(git branch | awk '/^\*/{print $2}')
+  local B=$(git branch | awk '/^\*/{print $2}')
+  git push "$@" origin "$B"
 }
 
 alias c=gcc c+=g++
