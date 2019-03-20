@@ -61,9 +61,9 @@ cdmd() {
 
 # Signal loudly about completion
 yell() {
-  local msg="Bash (pid $$)"
+  local msg="$SHELL (pid $$)"
   if test -n "$1"; then
-    msg="${msg} says: $1"
+    msg="${msg}: $1"
   fi
   case $(uname -o) in
   Cygwin)
@@ -76,23 +76,23 @@ yell() {
   esac
 }
 
-# Remove Cygwin's stuff from PATH
-# (useful for running bat files in canonical environment)
-cygtrimpath() {
-  local OLD_IFS
-  local NEWPATH
-
-  OLD_IFS=$IFS
-  IFS=:
-
-  NEWPATH=
-  for d in $PATH; do
-    if echo $d | grep -qv '^/\(usr\|bin\)'; then
-      NEWPATH="${NEWPATH:+$NEWPATH:}$d"
-    fi
-  done
-
-  PATH="$NEWPATH"
+# Based on autojump
+jc() {
+  local d=$(find -name "$1")
+  case $(echo "$d" | wc -l) in
+  1)
+    cd $d
+    ;;
+  0)
+    echo >&2 "Subdirectory '$1' not found"
+    return 1
+    ;;
+  *)
+    echo "More than one '$1' subdirectory found:" >&2
+    (echo "$d" | sed 's/^/  /') >&2
+    return 1
+    ;;
+  esac
 }
 
 # "fn [$D] $P" -> "find [$D] -name $P"
@@ -173,14 +173,6 @@ gitall() {
   done
 }
 
-cygtab() {
-  local STARTUP=$(mktemp)
-  echo "rm -f $STARTUP" >> $STARTUP
-  set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
-  echo "cd $PWD" >> $STARTUP
-  cygstart mintty bash --init-file $STARTUP
-}
-
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
@@ -193,6 +185,37 @@ alias fgfg=fg fg1='fg 1' fg2='fg 2' fg3='fg 3' fg4='fg 4'
 alias bg1='bg 1' bg2='bg 2' bg3='bg 3' bg4='bg 4'
 alias ww=which
 alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
+
+if test "$(uname -o)" = Cygwin; then
+  alias o=cygstart
+  # Opens new Cygwin window
+  cygtab() {
+    local STARTUP=$(mktemp)
+    echo "rm -f $STARTUP" >> $STARTUP
+    set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
+    echo "cd $PWD" >> $STARTUP
+    cygstart mintty bash --init-file $STARTUP
+  }
+  # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
+  cygtrimpath() {
+    local OLD_IFS
+    local NEWPATH
+
+    OLD_IFS=$IFS
+    IFS=:
+
+    NEWPATH=
+    for d in $PATH; do
+      if echo $d | grep -qv '^/\(usr\|bin\)'; then
+        NEWPATH="${NEWPATH:+$NEWPATH:}$d"
+      fi
+    done
+
+    PATH="$NEWPATH"
+  }
+else
+  alias o=xdg-open
+fi
 
 # TODO: forward Git autocompletions
 alias gtco='git checkout'
