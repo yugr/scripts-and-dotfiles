@@ -164,15 +164,6 @@ killl() {
   return $status
 }
 
-gitall() {
-  for repo in *; do
-    if test -d $repo/.git; then
-      echo "=== Running in $repo..."
-      (cd $repo && git "$@") || echo '  FAILED'
-    fi
-  done
-}
-
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
