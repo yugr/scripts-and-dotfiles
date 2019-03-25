@@ -164,6 +164,24 @@ killl() {
   return $status
 }
 
+# Opens new tab in Xterm
+newtab() {
+  local STARTUP=$(mktemp)
+  echo "rm -f $STARTUP" >> $STARTUP
+  set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
+  alias >> $STARTUP
+  echo "cd $PWD" >> $STARTUP
+  case $(uname -o) in
+  Cygwin)
+    cygstart mintty bash --init-file $STARTUP
+    ;;
+  *)
+    echo >&2 "Don't know how to open new tab on this platform"
+    return 1
+    ;;
+  esac
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
@@ -179,14 +197,6 @@ alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
-  # Opens new Cygwin window
-  cygtab() {
-    local STARTUP=$(mktemp)
-    echo "rm -f $STARTUP" >> $STARTUP
-    set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
-    echo "cd $PWD" >> $STARTUP
-    cygstart mintty bash --init-file $STARTUP
-  }
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
   cygtrimpath() {
     local OLD_IFS
