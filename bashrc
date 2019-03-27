@@ -197,6 +197,12 @@ alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
+  pwdw() {
+    cygpath -w $PWD
+  }
+  whichw() {
+    cygpath -w $(which "$1")
+  }
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
   cygtrimpath() {
     local OLD_IFS
