@@ -68,7 +68,7 @@ yell() {
   case $(uname -o) in
   Cygwin)
     rundll32 user32.dll,MessageBeep
-    msg \* "$msg"
+    cmd /c "msg $USER \"$msg\""
     ;;
   *)
     echo >&2 "Don't know how to notify on $(uname -o)"
