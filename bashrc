@@ -263,3 +263,7 @@ gtpo() {
 alias c=gcc c+=g++
 
 export PATH=$HOME/bin${PATH:+:$PATH}
+
+shopt -s autocd
+shopt -s dirspell
+shopt -s cdspell
