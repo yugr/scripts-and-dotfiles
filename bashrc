@@ -262,6 +262,9 @@ gtpo() {
 
 alias c=gcc c+=g++
 
+# Wrappers for https://www.ostechnix.com/use-google-translate-commandline-linux/
+alias trans-ru='trans -s Russian -t English' trans-en='trans -s English -t Russian'
+
 export PATH=$HOME/bin${PATH:+:$PATH}
 
 shopt -s autocd
