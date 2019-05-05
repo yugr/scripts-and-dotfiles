@@ -6,7 +6,9 @@ Additional packages to install:
 * bison flex
 * python python3 python-pip python3-pip perl
 * git subversion
-* wget curl openssh screen vim dos2unix manpages bzip2 zip
+* wget curl openssh screen
+* vim dos2unix manpages bash-completion
+* bzip2 zip
 
 Python packages:
 * virtualenv pylint tox
