@@ -261,7 +261,7 @@ alias gtft='git fetch'
 if [ -f "/usr/share/bash-completion/completions/git" ]; then
   . /usr/share/bash-completion/completions/git
   for a in $(alias | sed -n 's/^alias \(gt[^=]*\)=.git .*/\1/p'); do
-    c=$(alias $a | sed 's/^[^=]*=.git \([a-z0-9\-]\+\).*/\1/')
+    c=$(alias $a | sed 's/^[^=]*=.git \([a-z0-9\-]\+\).*/\1/' | tr '-' '_')
     eval "__git_complete $a _git_$c"
   done
 fi
