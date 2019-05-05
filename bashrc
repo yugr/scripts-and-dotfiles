@@ -197,12 +197,14 @@ alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
+
   pwdw() {
     cygpath -w $PWD
   }
   whichw() {
     cygpath -w $(which "$1")
   }
+
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
   cygtrimpath() {
     local OLD_IFS
@@ -235,7 +237,7 @@ alias gtb='git branch'
 alias gtba='git branch -a'
 alias gtbd='git branch -D'
 alias gtl='git log'
-for N in $(seq 1 10); do alias "gtl$N=git log -n$N"; done
+for N in $(seq 1 20); do alias "gtl$N=git log -n$N"; done
 alias gtlg='git log --graph'
 alias gta='git add'
 alias gtrm='git rm'
