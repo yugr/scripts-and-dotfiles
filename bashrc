@@ -257,6 +257,14 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+# Enable Git completions for aliases
+if [ -f "/usr/share/bash-completion/completions/git" ]; then
+  . /usr/share/bash-completion/completions/git
+  for a in $(alias | sed -n 's/^alias \(gt[^=]*\)=.git .*/\1/p'); do
+    c=$(alias $a | sed 's/^[^=]*=.git \([a-z0-9\-]\+\).*/\1/')
+    eval "__git_complete $a _git_$c"
+  done
+fi
 
 gtpo() {
   local B=$(git branch | awk '/^\*/{print $2}')
