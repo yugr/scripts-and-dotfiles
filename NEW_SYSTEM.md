@@ -7,7 +7,7 @@ Additional packages to install:
 * python python3 python-pip python3-pip perl
 * git subversion
 * wget curl openssh screen
-* vim dos2unix manpages bash-completion
+* vim dos2unix manpages bash-completion cron
 * bzip2 zip
 
 Python packages:
@@ -18,6 +18,13 @@ For Cygwin also install:
 * Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
 * chere and run SetupContextMenu.reg
 * (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
+and add cron to Windows services:
+```
+$ cron-config
+...
+*** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
+...
+```
 
 Other packages:
 * https://github.com/vigneshwaranr/bd
