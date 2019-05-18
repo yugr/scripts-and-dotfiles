@@ -18,6 +18,7 @@ For Cygwin also install:
 * Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
 * chere and run SetupContextMenu.reg
 * (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
+
 and add cron to Windows services:
 ```
 $ cron-config
