@@ -205,6 +205,15 @@ if test "$(uname -o)" = Cygwin; then
     cygpath -w $(which "$1")
   }
 
+  # Copy Bash/readline yanked buffer to Windows clipboard
+  rl2clip() {
+    local S
+    S=$(mktemp --suffix=.vbs)
+    trap "rm -f $S" EXIT
+    echo "set shell = CreateObject(\"WScript.Shell\"): shell.SendKeys \"echo ^y | tr -d '\r\n' | clip{ENTER}\"" > $S
+    cscript //B $(cygpath -w $S)
+  }
+
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
   cygtrimpath() {
     local OLD_IFS
