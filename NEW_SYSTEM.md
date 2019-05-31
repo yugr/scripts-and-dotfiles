@@ -1,3 +1,5 @@
+Instructions for setting up new Linux systems.
+
 Additional packages to install:
 * gcc g++ gdb
 * make cmake
@@ -9,15 +11,16 @@ Additional packages to install:
 * wget curl openssh screen
 * vim dos2unix manpages bash-completion cron
 * bzip2 zip
-
-For Cygwin also install:
-* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
-* Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
-* chere and run SetupContextMenu.reg
-* (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
+* (Cygwin only) apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
+* (Cygwin only) Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
+* (Cygwin only) chere (for SetupContextMenu.reg)
 
 Python packages:
 * virtualenv pylint tox
+
+Other packages:
+* https://github.com/vigneshwaranr/bd
+* https://www.ostechnix.com/use-google-translate-commandline-linux/
 
 Setup git:
 ```
@@ -25,14 +28,13 @@ $ git config --global user.name 'User Name'
 $ git config --global user.email user@server.com
 ```
 
-On Cygwin add cron to Windows services:
+For Cygwin also run
+* run SetupContextMenu.reg
+* (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
+and add cron to Windows services:
 ```
 $ cron-config
 ...
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
-
-Other packages:
-* https://github.com/vigneshwaranr/bd
-* https://www.ostechnix.com/use-google-translate-commandline-linux/
