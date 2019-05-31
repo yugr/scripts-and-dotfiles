@@ -33,7 +33,7 @@ if ! test -f $HOME/.backuprc; then
   exit 1
 fi
 
-source $HOME/.backuprc
+. $HOME/.backuprc
 
 TMP=$(mktemp -d)
 trap "rm -rf $TMP" EXIT
