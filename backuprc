@@ -1,0 +1,13 @@
+# Config file for simple-backup
+
+# TODO: add other important folders
+BACKUP_SOURCES="
+  $HOME/.bashrc
+  $HOME/.persistent_history
+  $HOME/bin
+  $HOME/docs
+  /var/cron/tabs/$USER
+  $(cygpath "$USERPROFILE/Links")
+  $(cygpath "$LOCALAPPDATA/Google/Chrome/User Data/default/Bookmarks" | tr ' ' +)"
+
+BACKUP_DESTS="$(cygpath "$USERPROFILE/Downloads")
