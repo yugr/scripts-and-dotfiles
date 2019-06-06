@@ -20,7 +20,7 @@ Python packages:
 
 Other packages:
 * https://github.com/vigneshwaranr/bd
-* https://www.ostechnix.com/use-google-translate-commandline-linux/
+* https://www.ostechnix.com/use-google-translate-commandline-linux/ (https://github.com/soimort/translate-shell)
 
 Setup git:
 ```
