@@ -12,7 +12,7 @@ Additional packages to install:
 * vim dos2unix manpages bash-completion cron
 * bzip2 zip
 * (Cygwin only) apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
-* (Cygwin only) Sysinternals (https://docs.microsoft.com/en-us/sysinternals)
+* (Cygwin only) [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
 * (Cygwin only) chere (for SetupContextMenu.reg)
 
 Python packages:
@@ -28,10 +28,10 @@ $ git config --global user.name 'User Name'
 $ git config --global user.email user@server.com
 ```
 
-For Cygwin also run
-* run SetupContextMenu.reg
+For Cygwin also
+* run SetupContextMenu.reg (depends on chere)
 * (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
-and add cron to Windows services:
+* add cron to Windows services:
 ```
 $ cron-config
 ...
