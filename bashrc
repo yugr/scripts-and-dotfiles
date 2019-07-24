@@ -168,6 +168,7 @@ killl() {
 newtab() {
   local STARTUP=$(mktemp)
   echo "rm -f $STARTUP" >> $STARTUP
+  shopt -p >> $STARTUP
   set | grep -v '^\(\(BASH\|SHELL\)OPTS\|BASH_VERSINFO\|\(EU\|PP\|U\)ID\)' >> $STARTUP
   alias >> $STARTUP
   echo "cd $PWD" >> $STARTUP
