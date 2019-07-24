@@ -204,6 +204,14 @@ if test "$(uname -o)" = Cygwin; then
   whichw() {
     cygpath -w $(which "$1")
   }
+  pwdwclip() {
+    pwdw | tr -d '\r\n' | clip
+  }
+
+  # TODO: add Linux analog
+  pwdclip() {
+    pwd | tr -d '\r\n' | clip
+  }
 
   # Copy Bash/readline yanked buffer to Windows clipboard
   rl2clip() {
