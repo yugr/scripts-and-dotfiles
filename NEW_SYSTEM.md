@@ -11,6 +11,7 @@ Additional packages to install:
 * wget curl openssh screen
 * vim dos2unix manpages bash-completion cron
 * bzip2 zip
+* ascii
 * (Cygwin only) apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
 * (Cygwin only) [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
 * (Cygwin only) chere (for SetupContextMenu.reg)

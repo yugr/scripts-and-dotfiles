@@ -1,1 +1,5 @@
 defscrollback 8192
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%n: %t"
