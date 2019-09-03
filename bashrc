@@ -183,6 +183,33 @@ newtab() {
   esac
 }
 
+watch_network() {
+  local DT_MIN=3
+  local DT_MAX=60
+  local SITE=yandex.ru
+
+  DT=$DT_MIN
+  while true; do
+    if ! ping -n 1 yandex.ru; then
+      sleep 1
+      if ping -n 1 yandex.ru; then
+        echo 'Ignoring short connection loss...'
+      else
+        echo 'Connection lost'
+        DT=0
+      fi
+    elif test $DT -eq 0; then
+      DT=$DT_MIN
+    elif test $DT -lt $DT_MAX; then
+      DT=$((DT * 2))
+    elif test $DT -gt $DT_MAX; then
+      DT=$DT_MAX
+    fi
+    echo 'Sleeping for $DT seconds...'
+    sleep $DT
+  done
+}
+
 export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check' mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)" mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install" mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
