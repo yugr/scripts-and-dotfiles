@@ -58,5 +58,5 @@ for dst in $BACKUP_DESTS; do
   dst=$(echo "$dst/backups/$(hostname)" | tr + ' ')
   mkdir -p "$dst"
   find "$dst" -mtime +7 | xargs rm -rf  # Remove old files
-  cp $arc.zip "$dst"
+  cp $arc.zip "$dst"/$arc.zip
 done
