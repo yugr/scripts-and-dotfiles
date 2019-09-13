@@ -112,3 +112,5 @@ augroup Binary
   au BufWritePost *.bin set nomod | endif
 augroup END
 
+" Abbreviations
+iabbrev binsh #!/bin/sh<CR><CR>set -euo pipefail<CR>set -x<CR>
