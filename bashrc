@@ -183,7 +183,7 @@ newtab() {
   esac
 }
 
-watch_network() {
+watch-network() {
   local DT_MIN=3
   local DT_MAX=60
   local SITE=yandex.ru
@@ -205,7 +205,7 @@ watch_network() {
     elif test $DT -gt $DT_MAX; then
       DT=$DT_MAX
     fi
-    echo 'Sleeping for $DT seconds...'
+    echo "Sleeping for $DT seconds..."
     sleep $DT
   done
 }
