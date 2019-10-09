@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -euo pipefail
+set -x
+
+D=$(dirname $0)
+
+for cfg_cmd in \
+    'backuprc;source' \
+    'bashrc;source' \
+    'gdbinit;source' \
+    'screenrc;source' \
+    'tmux.conf;source-file' \
+    'vimrc;source'; do
+  cfg=$D/${cfg_cmd%;*}
+  cmd=${cfg_cmd#*;}
+  echo "$cmd $cfg" >> $HOME/.$f
+done
