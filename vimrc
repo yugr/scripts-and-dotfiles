@@ -1,4 +1,28 @@
 set nocompatible
+filetype off
+
+" Setup Vundle:
+"   gtcl https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+  set rtp+=~/.vim/bundle/Vundle.vim
+  let vimdir = '~/.vim/bundle'
+  if has('win32unix')
+    " Use mixed path on Cygwin so that Windows git works
+    let vimdir = substitute(system('cygpath -m ' . vimdir), '\n\+$', '', '')
+  endif
+
+  call vundle#begin(vimdir)
+
+  Plugin 'VundleVim/Vundle.vim'
+
+  " Plugins
+  Plugin 'git://github.com/inkarkat/vim-ingo-library'
+  Plugin 'git://github.com/inkarkat/vim-mark'
+
+  call vundle#end()
+
+  filetype plugin indent on
+endif
 
 syntax enable
 
