@@ -1,9 +1,10 @@
 set nocompatible
-filetype off
 
 " Setup Vundle:
 "   gtcl https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+  filetype off
+
   set rtp+=~/.vim/bundle/Vundle.vim
   let vimdir = '~/.vim/bundle'
   if has('win32unix')
@@ -21,7 +22,7 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
 
   call vundle#end()
 
-  filetype plugin indent on
+  filetype on
 endif
 
 syntax enable
