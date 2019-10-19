@@ -30,6 +30,7 @@ syntax enable
 set ruler
 set vb
 set nohlsearch
+set noincsearch
 set nodigraph
 set nowrapscan
 set wrap
