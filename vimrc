@@ -19,6 +19,8 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
   " Plugins
   Plugin 'git://github.com/inkarkat/vim-ingo-library'
   Plugin 'git://github.com/inkarkat/vim-mark'
+  Plugin 'git://github.com/luochen1990/rainbow'
+  let g:rainbow_active = 1
 
   call vundle#end()
 
@@ -68,10 +70,6 @@ vmap <C-U> <Left>
 vmap <C-J> <Down>
 vmap <C-K> <Up>
 vmap <C-L> <Right>
-
-"Help
-imap <F1> <Esc>:h<CR>
-nmap <F1> :h<CR>
 
 "Save current buffer
 imap <F2> <Esc>:w!<CR>a
@@ -148,6 +146,8 @@ set wildmenu
 " Highlight current line
 set cursorline
 
-" Explorer
+" File explorer
 let g:netrw_banner=0
-let g:netrw_altv=1
+let g:netrw_liststyle= 3
+let g:netrw_preview=1
+let g:netrw_alto=0
