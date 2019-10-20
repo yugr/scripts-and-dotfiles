@@ -121,6 +121,7 @@ highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
 
 " Autocomplete menu
 set wildmenu
+set wildignore+=*.swp,*~,*.o,*.obj,*.py[co]
 
 " Highlight current line
 set cursorline
