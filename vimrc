@@ -125,6 +125,11 @@ set wildmenu
 " Highlight current line
 set cursorline
 
+" Highlight 80 columns
+au BufReadPost,BufNewFile *
+  \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|vim\|sh\)$' |
+  \ set colorcolumn=80 | endif
+
 " File explorer
 let g:netrw_banner=0
 let g:netrw_liststyle= 3
