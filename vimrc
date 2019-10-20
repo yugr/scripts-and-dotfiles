@@ -29,7 +29,6 @@ filetype plugin on
 syntax enable
 
 set ruler
-set vb
 set nohlsearch
 set noincsearch
 set nodigraph
@@ -38,26 +37,62 @@ set wrap
 set showmatch
 set background=dark 
 set scrolloff=3
+set sidescrolloff=5
 "set number
-"set paste
 set complete-=i  "Too slow...
+set history=10000
 
+" Silence
 set noerrorbells
 set visualbell
 set t_vb=
 
+" Speedup rendering
 set lazyredraw
 set ttyfast
 
+set listchars+=precedes:<,extends:>
+set iskeyword=@,48-57,_,!,#,$,%
+
+" Disable .swp files
 set nobackup
 
-set history=10000
+" Dictionary (install wamerican)
+set dictionary=/usr/share/dict/words
 
-set listchars+=precedes:<,extends:>
-set sidescroll=5
-set sidescrolloff=5
+" Special keys
+if &term == "cygwin"
+    set t_kD=[3~
+endif
+set backspace=indent,eol,start
 
-set iskeyword=@,48-57,_,!,#,$,%
+" Autocomplete menu
+set wildmenu
+set wildignore+=*.swp,*~,*.o,*.obj,*.py[co]
+
+" Nicer status line
+highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
+
+" Highlight current line
+set cursorline
+
+" Highlight 80 columns
+au BufReadPost,BufNewFile *
+  \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|vim\|sh\)$' |
+  \ set colorcolumn=80 | endif
+
+" File explorer
+let g:netrw_banner=0
+let g:netrw_liststyle= 3
+let g:netrw_preview=1
+let g:netrw_alto=0
+
+" Use syntax folds
+set foldmethod=syntax
+set foldminlines=3
+set nofoldenable
+
+" Custom bindings
 
 imap <C-U> <Left>
 imap <C-J> <Down>
@@ -78,9 +113,6 @@ nmap <F2> :w!<CR>
 imap <S-F2> <Esc>:wa!<CR>a
 nmap <S-F2> :wa!<CR>
 
-"Dictionary (install wamerican)
-
-set dictionary=/usr/share/dict/words
 imap <F3> <Esc>:set complete+=k<CR>a
 map <F3> :set complete+=k<CR>
 imap <F4> <Esc>:set complete-=k<CR>a
@@ -111,36 +143,6 @@ map <F11> <Esc>:q!<CR>
 imap <F11> <Esc>:q!<CR>
 map <S-F11> <Esc>:qa!<CR>
 imap <S-F11> <Esc>:qa!<CR>
-
-if &term == "cygwin"
-    set t_kD=[3~
-endif
-set backspace=indent,eol,start
-
-highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
-
-" Autocomplete menu
-set wildmenu
-set wildignore+=*.swp,*~,*.o,*.obj,*.py[co]
-
-" Highlight current line
-set cursorline
-
-" Highlight 80 columns
-au BufReadPost,BufNewFile *
-  \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|vim\|sh\)$' |
-  \ set colorcolumn=80 | endif
-
-" File explorer
-let g:netrw_banner=0
-let g:netrw_liststyle= 3
-let g:netrw_preview=1
-let g:netrw_alto=0
-
-" Use syntax folds
-set foldmethod=syntax
-set foldminlines=3
-set nofoldenable
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
