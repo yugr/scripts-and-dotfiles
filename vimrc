@@ -31,6 +31,7 @@ syntax enable
 set ruler
 set nohlsearch
 set noincsearch
+set showcmd
 set nodigraph
 set nowrapscan
 set wrap
@@ -41,6 +42,7 @@ set sidescrolloff=5
 "set number
 set complete-=i  "Too slow...
 set history=10000
+set title
 
 " Silence
 set noerrorbells
