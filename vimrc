@@ -138,6 +138,7 @@ let g:netrw_alto=0
 
 " Use syntax folds
 set foldmethod=syntax
+set foldminlines=3
 set nofoldenable
 
 " vim -b : edit binary using xxd-format!
