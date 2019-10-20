@@ -23,10 +23,9 @@ if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
   let g:rainbow_active = 1
 
   call vundle#end()
-
-  filetype on
 endif
 
+filetype plugin on 
 syntax enable
 
 set ruler
@@ -120,9 +119,21 @@ set backspace=indent,eol,start
 
 highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
 
-" Enable plugins
-set nocp
-filetype plugin on 
+" Autocomplete menu
+set wildmenu
+
+" Highlight current line
+set cursorline
+
+" File explorer
+let g:netrw_banner=0
+let g:netrw_liststyle= 3
+let g:netrw_preview=1
+let g:netrw_alto=0
+
+" Use syntax folds
+set foldmethod=syntax
+set nofoldenable
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
@@ -139,15 +150,3 @@ augroup END
 " Abbreviations
 iabbrev binsh #!/bin/sh<CR><CR>set -euo pipefail<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/perl<CR><CR>use strict;<CR>use warnings;<CR><CR>
-
-" Autocomplete menu
-set wildmenu
-
-" Highlight current line
-set cursorline
-
-" File explorer
-let g:netrw_banner=0
-let g:netrw_liststyle= 3
-let g:netrw_preview=1
-let g:netrw_alto=0
