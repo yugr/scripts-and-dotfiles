@@ -72,7 +72,6 @@ set lazyredraw
 set ttyfast
 
 set listchars+=precedes:<,extends:>
-set iskeyword=@,48-57,_,!,#,$,%
 
 " Disable .swp files
 set nobackup
