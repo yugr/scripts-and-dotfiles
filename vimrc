@@ -1,8 +1,26 @@
 set nocompatible
 
-" Setup Vundle:
-"   gtcl https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
+" Setup vim-plug
+if filereadable(expand('~/.vim/autoload/plug.vim'))
+  let g:plug_home='~/.vim/plugged'
+  if has('win32unix')
+    " Use mixed path on Cygwin so that Windows git works
+    let g:plug_home = substitute(system('cygpath -m ' . g:plug_home), '\n\+$', '', '')
+  endif
+
+  call plug#begin()
+
+   " Plugins
+  Plug 'inkarkat/vim-ingo-library'
+  Plug 'inkarkat/vim-mark'
+  Plug 'luochen1990/rainbow'
+  let g:rainbow_active = 1
+
+  call plug#end()
+ endif
+
+" Setup Vundle
+if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
   filetype off
 
   set rtp+=~/.vim/bundle/Vundle.vim
