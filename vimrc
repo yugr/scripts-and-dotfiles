@@ -1,11 +1,11 @@
 set nocompatible
 
-" Setup vim-plug
+" Setup vim-plug plugins
 if filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:plug_home='~/.vim/plugged'
-  if has('win32unix')
+  if has('win32unix') && executable('cygpath')
     " Use mixed path on Cygwin so that Windows git works
-    let g:plug_home = substitute(system('cygpath -m ' . g:plug_home), '\n\+$', '', '')
+    let g:plug_home = split(system('cygpath -m ' . g:plug_home), "\r\?\n")[0]
   endif
 
   call plug#begin()
@@ -19,7 +19,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   call plug#end()
  endif
 
-" Setup Vundle
+" Setup Vundle plugins
 if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
   filetype off
 
@@ -44,10 +44,11 @@ if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
 endif
 
 filetype plugin on 
+filetype indent off  " Builtin indents are weird...
 syntax enable
 
 set ruler
-set nohlsearch
+set hlsearch
 set noincsearch
 set showcmd
 set nodigraph
@@ -58,7 +59,7 @@ set background=dark
 set scrolloff=3
 set sidescrolloff=5
 "set number
-set complete-=i  "Too slow...
+set complete-=i  " Too slow...
 set history=10000
 set title
 
@@ -107,61 +108,54 @@ let g:netrw_preview=1
 let g:netrw_alto=0
 
 " Use syntax folds
-set foldmethod=syntax
+set foldmethod=manual  " Syntax is better but too slow...
 set foldminlines=3
 set nofoldenable
 
 " Custom bindings
 
-imap <C-U> <Left>
+imap <C-H> <Left>
 imap <C-J> <Down>
 imap <C-K> <Up>
 imap <C-L> <Right>
-imap <C-0> <Home> 
 
-vmap <C-U> <Left>
-vmap <C-J> <Down>
-vmap <C-K> <Up>
-vmap <C-L> <Right>
-
-"Save current buffer
+" Save current buffer
 imap <F2> <Esc>:w!<CR>a
 nmap <F2> :w!<CR>
 
-"Save all buffers 
+" Save all buffers 
 imap <S-F2> <Esc>:wa!<CR>a
 nmap <S-F2> :wa!<CR>
 
-imap <F3> <Esc>:set complete+=k<CR>a
-map <F3> :set complete+=k<CR>
-imap <F4> <Esc>:set complete-=k<CR>a
-map <F4> :set complete-=k<CR>
-
+" Navigate buffers
 nmap <F5> :prev<CR>
 imap <F5> <Esc>:prev<CR>a
 nmap <F6> :next<CR>
 imap <F6> <Esc>:next<CR>a
 
+" Navigate windows
 nmap <F7> <C-W>k<C-W>_
 imap <F7> <Esc><C-W>k<C-W>_a
 nmap <F8> <C-W>j<C-W>_
 imap <F8> <Esc><C-W>j<C-W>_a
 
-"Compile results
-imap <S-F9> <Esc>:copen<CR>
-nmap <S-F9> :copen<CR>
-
-"Save and exit
+" Save and exit
 map <F10> <Esc>:x<CR>
 imap <F10> <Esc>:x<CR>
 map <S-F10> <Esc>:xa<CR>
 imap <S-F10> <Esc>:xa<CR>
 
-"Discard and exit
+" Discard and exit
 map <F11> <Esc>:q!<CR>
 imap <F11> <Esc>:q!<CR>
 map <S-F11> <Esc>:qa!<CR>
 imap <S-F11> <Esc>:qa!<CR>
+
+" Better leader
+let mapleader = " "
+
+" Toggle hlsearch
+map <Leader><Space> :set hlsearch!<CR>
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
