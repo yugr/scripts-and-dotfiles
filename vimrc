@@ -5,7 +5,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:plug_home='~/.vim/plugged'
   if has('win32unix') && executable('cygpath')
     " Use mixed path on Cygwin so that Windows git works
-    let g:plug_home = split(system('cygpath -m ' . g:plug_home), "\r\?\n")[0]
+    let g:plug_home = split(system('cygpath -m ' . g:plug_home), "\r*\n")[0]
   endif
 
   call plug#begin()
