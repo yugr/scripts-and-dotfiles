@@ -62,6 +62,7 @@ set sidescrolloff=5
 set complete-=i  " Too slow...
 set history=10000
 set title
+set laststatus=2
 
 " Silence
 set noerrorbells
@@ -71,11 +72,13 @@ set t_vb=
 " Speedup rendering
 set lazyredraw
 set ttyfast
+set lazyredraw
 
 set listchars+=precedes:<,extends:>
 
-" Disable .swp files
+" Disable backup files
 set nobackup
+set noswapfile
 
 " Dictionary (install wamerican)
 set dictionary=/usr/share/dict/words
@@ -88,7 +91,7 @@ set backspace=indent,eol,start
 
 " Autocomplete menu
 set wildmenu
-set wildignore+=*.swp,*~,*.o,*.obj,*.py[co]
+set wildignore+=*.swp,*~,*.o,*.obj,*.py[co],*.class
 
 " Nicer status line
 highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
@@ -101,6 +104,11 @@ au BufReadPost,BufNewFile *
   \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|vim\|sh\)$' |
   \ set colorcolumn=80 | endif
 
+" Enable mouse
+if has('mouse')
+  set mouse=a
+endif
+
 " File explorer
 let g:netrw_banner=0
 let g:netrw_liststyle= 3
@@ -110,7 +118,6 @@ let g:netrw_alto=0
 " Use syntax folds
 set foldmethod=manual  " Syntax is better but too slow...
 set foldminlines=3
-set nofoldenable
 
 " Custom bindings
 
@@ -126,6 +133,10 @@ nmap <F2> :w!<CR>
 " Save all buffers 
 imap <S-F2> <Esc>:wa!<CR>a
 nmap <S-F2> :wa!<CR>
+
+" Toggle line numbers
+nmap <F3> :set number!<CR>
+imap <F3> <Esc>:set number!<CR>a
 
 " Navigate buffers
 nmap <F5> :prev<CR>
@@ -150,6 +161,9 @@ map <F11> <Esc>:q!<CR>
 imap <F11> <Esc>:q!<CR>
 map <S-F11> <Esc>:qa!<CR>
 imap <S-F11> <Esc>:qa!<CR>
+
+" Alias for Esc
+imap jj <Esc>
 
 " Better leader
 let mapleader = " "
