@@ -121,55 +121,55 @@ set foldminlines=3
 
 " Custom bindings
 
-imap <C-H> <Left>
-imap <C-J> <Down>
-imap <C-K> <Up>
-imap <C-L> <Right>
+inoremap <C-H> <Left>
+inoremap <C-J> <Down>
+inoremap <C-K> <Up>
+inoremap <C-L> <Right>
 
 " Save current buffer
-imap <F2> <Esc>:w!<CR>a
-nmap <F2> :w!<CR>
+nnoremap <F2> :w!<CR>
+inoremap <F2> <Esc>:w!<CR>a
 
 " Save all buffers 
-imap <S-F2> <Esc>:wa!<CR>a
-nmap <S-F2> :wa!<CR>
+nnoremap <S-F2> :wa!<CR>
+inoremap <S-F2> <Esc>:wa!<CR>a
 
 " Toggle line numbers
-nmap <F3> :set number!<CR>
-imap <F3> <Esc>:set number!<CR>a
+nnoremap <F3> :set number!<CR>
+inoremap <F3> <Esc>:set number!<CR>a
 
 " Navigate buffers
-nmap <F5> :prev<CR>
-imap <F5> <Esc>:prev<CR>a
-nmap <F6> :next<CR>
-imap <F6> <Esc>:next<CR>a
+nnoremap <F5> :prev<CR>
+inoremap <F5> <Esc>:prev<CR>a
+nnoremap <F6> :next<CR>
+inoremap <F6> <Esc>:next<CR>a
 
 " Navigate windows
-nmap <F7> <C-W>k<C-W>_
-imap <F7> <Esc><C-W>k<C-W>_a
-nmap <F8> <C-W>j<C-W>_
-imap <F8> <Esc><C-W>j<C-W>_a
+nnoremap <F7> <C-W>k<C-W>_
+inoremap <F7> <Esc><C-W>k<C-W>_a
+nnoremap <F8> <C-W>j<C-W>_
+inoremap <F8> <Esc><C-W>j<C-W>_a
 
 " Save and exit
-map <F10> <Esc>:x<CR>
-imap <F10> <Esc>:x<CR>
-map <S-F10> <Esc>:xa<CR>
-imap <S-F10> <Esc>:xa<CR>
+nnoremap <F10> <Esc>:x<CR>
+inoremap <F10> <Esc>:x<CR>
+nnoremap <S-F10> <Esc>:xa<CR>
+inoremap <S-F10> <Esc>:xa<CR>
 
 " Discard and exit
-map <F11> <Esc>:q!<CR>
-imap <F11> <Esc>:q!<CR>
-map <S-F11> <Esc>:qa!<CR>
-imap <S-F11> <Esc>:qa!<CR>
+nnoremap <F11> <Esc>:q!<CR>
+inoremap <F11> <Esc>:q!<CR>
+nnoremap <S-F11> <Esc>:qa!<CR>
+inoremap <S-F11> <Esc>:qa!<CR>
 
 " Alias for Esc
-imap jj <Esc>
+inoremap jj <Esc>
 
 " Better leader
 let mapleader = " "
 
 " Toggle hlsearch
-map <Leader><Space> :set hlsearch!<CR>
+nnoremap <Leader><Space> :set hlsearch!<CR>
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
