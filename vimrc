@@ -135,8 +135,14 @@ nnoremap <S-F2> :wa!<CR>
 inoremap <S-F2> <Esc>:wa!<CR>a
 
 " Toggle line numbers
-nnoremap <F3> :set number!<CR>
-inoremap <F3> <Esc>:set number!<CR>a
+nnoremap <F1> :set number!<CR>
+inoremap <F1> <Esc>:set number!<CR>a
+
+" Navigate errors/vimgrep results
+nnoremap <F3> :cprev<CR>
+inoremap <F3> <Esc>:cprev<CR>
+nnoremap <F4> :cnext<CR>
+inoremap <F4> <Esc>:cnext<CR>
 
 " Navigate buffers
 nnoremap <F5> :prev<CR>
@@ -149,6 +155,12 @@ nnoremap <F7> <C-W>k<C-W>_
 inoremap <F7> <Esc><C-W>k<C-W>_a
 nnoremap <F8> <C-W>j<C-W>_
 inoremap <F8> <Esc><C-W>j<C-W>_a
+
+" Navigate tabs
+nnoremap <S-F7> :tabprev<CR>
+inoremap <S-F7> <Esc>:tabprev<CR>
+nnoremap <S-F8> :tabnext<CR>
+inoremap <S-F8> <Esc>:tabnext<CR>
 
 " Save and exit
 nnoremap <F10> <Esc>:x<CR>
