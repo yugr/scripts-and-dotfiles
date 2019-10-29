@@ -39,3 +39,5 @@ $ cron-config
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
+
+Finally, setup mouse highlight in OS.
