@@ -1,5 +1,7 @@
 Windows Registry Editor Version 5.00
 
+; Add Cygwin to Windows context menu
+
 [HKEY_CURRENT_USER\Software\Classes\directory\Background\shell\Open in Cygwin\command]
 @="C:\\cygwin64\\bin\\mintty.exe -i /Cygwin-Terminal.ico -e /bin/xhere /bin/bash.exe"
 
