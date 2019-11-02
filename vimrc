@@ -109,6 +109,19 @@ if has('mouse')
   set mouse=a
 endif
 
+function MyToggleNumbering()
+  if &number && &relativenumber
+    set nonumber
+    set norelativenumber
+  elseif &number && ! &relativenumber
+    set relativenumber
+  elseif ! &number && &relativenumber
+    set number
+  else  " ! &number && ! &relativenumber
+    set number
+  endif
+endfunction
+
 " File explorer
 let g:netrw_banner=0
 let g:netrw_liststyle= 3
@@ -135,8 +148,7 @@ nnoremap <S-F2> :wa!<CR>
 inoremap <S-F2> <Esc>:wa!<CR>a
 
 " Toggle line numbers
-nnoremap <F1> :set number!<CR>
-inoremap <F1> <Esc>:set number!<CR>a
+nnoremap <F1> :call MyToggleNumbering()<CR>
 
 " Navigate errors/vimgrep results
 nnoremap <F3> :cprev<CR>
