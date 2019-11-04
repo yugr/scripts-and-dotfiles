@@ -16,3 +16,5 @@ for cfg_cmd in \
   cmd=${cfg_cmd#*;}
   echo "$cmd $cfg" >> $HOME/.$f
 done
+
+echo "PATH=$D/bin:$PATH" >> $HOME/.bashrc

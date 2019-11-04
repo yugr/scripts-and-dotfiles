@@ -115,55 +115,6 @@ fn() {
   find "$D" -name "$1"
 }
 
-# "fromto M N" - print lines in [M, N] (inclusive) interval
-# "fromto M +N" - print N lines following M (inclusive)
-fromto() {
-  local span
-  case "$2" in
-  +*)
-    span=$(echo "$2" | sed 's/^.//')
-    ;;
-  *)
-    if test "$2" -ge "$1"; then
-      span=$(($2 - $1 + 1))
-    else
-      span=0
-    fi
-    ;;
-  esac
-  tail -n +"$1" | head -n $span
-}
-
-# Nested kill
-killl() {
-  local status sig pid
-
-  if test $# -ne 1 -a $# -ne 2; then
-    echo >&2 "Usage: killl [-SIG] PID"
-    return 1
-  elif test $# = 2; then
-    sig=$1
-    pid=$2
-  else
-    pid=$1
-    sig=-TERM
-  fi
-
-  status=0
-
-  # Stop parent so that it does not respawn children
-  kill -SIGSTOP $pid || status=1
-
-  for kid in $(ps -o pid --no-headers --ppid $pid); do
-    killl $sig $kid || status=1
-  done
-
-  # Need to continue stopped process so that system can kill it
-  kill $sig $pid && kill -SIGCONT $pid || status=1
-
-  return $status
-}
-
 # Opens new tab in Xterm
 newtab() {
   local STARTUP=$(mktemp)
@@ -209,8 +160,6 @@ watch-network() {
     sleep $DT
   done
 }
-
-export VISUAL='vim -f'
 
 alias m='nice make' mi='nice make install' mck='nice make -k check'
 if test -d /proc; then
@@ -307,6 +256,7 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+
 # Enable Git completions for aliases
 if [ -f "/usr/share/bash-completion/completions/git" ]; then
   . /usr/share/bash-completion/completions/git
@@ -327,6 +277,8 @@ alias c=gcc c+=g++
 
 # Wrappers for https://www.ostechnix.com/use-google-translate-commandline-linux/
 alias trans-ru='trans -s Russian -t English' trans-en='trans -s English -t Russian'
+
+export VISUAL='vim -f'
 
 export PATH=$HOME/bin${PATH:+:$PATH}
 
