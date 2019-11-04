@@ -14,49 +14,49 @@ log_bash_persistent_history()
 # Stuff to do on PROMPT_COMMAND
 run_on_prompt_command()
 {
-    log_bash_persistent_history
+  log_bash_persistent_history
 }
 
 persistent_history()
 {
-	if [ -z "$1" ]; then
-		cat $HOME/.persistent_history
-	else
-		local N
-		N=-10
-		case "$1" in
-		-[0-9]*)
-			N="$1"
-			shift
-			;;
-		esac
-		grep "$@" < $HOME/.persistent_history | tail $N
-	fi
+  if [ -z "$1" ]; then
+    cat $HOME/.persistent_history
+  else
+    local N
+    N=-10
+    case "$1" in
+    -[0-9]*)
+      N="$1"
+      shift
+      ;;
+    esac
+    grep "$@" < $HOME/.persistent_history | tail $N
+  fi
 }
 
 PROMPT_COMMAND=run_on_prompt_command
 
 # Ignore common trash
 goodgrep() {
-	grep --exclude=tags --exclude=cscope\* --exclude-dir .svn --exclude-dir .git "$@"
+  grep --exclude=tags --exclude=cscope\* --exclude-dir .svn --exclude-dir .git "$@"
 }
 
 grephere() {
-	goodgrep -R "$@" .
+  goodgrep -R "$@" .
 }
 
 vimfind() {
-	vim $(find ${2:-.} -name "$1")
+  vim $(find ${2:-.} -name "$1")
 }
 
 vimgrep() {
-	vim $(grep -r -l -i "$1" ${2:-.}) +':set ic hls' +1 +/"$1"
+  vim $(grep -r -l -i "$1" ${2:-.}) +':set ic hls' +1 +/"$1"
 }
 
 cdmd() {
-	if mkdir -p "$1"; then
-		cd "$1"
-	fi
+  if mkdir -p "$1"; then
+    cd "$1"
+  fi
 }
 
 # Signal loudly about completion
