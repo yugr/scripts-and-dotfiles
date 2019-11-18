@@ -270,7 +270,7 @@ fi
 
 gtpo() {
   local B=$(git branch | awk '/^\*/{print $2}')
-  git push "$@" origin "$B"
+  git push -u "$@" origin "$B"
 }
 
 alias c=gcc c+=g++
