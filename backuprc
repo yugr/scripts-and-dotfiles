@@ -3,6 +3,8 @@
 # TODO: add other important folders
 BACKUP_SOURCES="
   $HOME/.bashrc
+  $HOME/.vimrc
+  $HOME/.backuprc
   $HOME/.persistent_history
   $HOME/bin
   $HOME/docs

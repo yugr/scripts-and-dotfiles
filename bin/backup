@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # A simple script for regular backups. To setup,
-# define BACKUP_SOURCES and BACKUP_DESTS in $HOME/.backup.
+# define BACKUP_SOURCES and BACKUP_DESTS in $HOME/.backuprc.
 # 
 # To install, add to crontab:
 #   10 00 * * * PATH="/bin:/usr/bin:$HOME/bin:$PATH"; /bin/sh $HOME/bin/backup.sh 2>$HOME/backup.err
@@ -57,6 +57,6 @@ zip -q -r $arc.zip $arc
 for dst in $BACKUP_DESTS; do
   dst=$(echo "$dst/backups/$(hostname)" | tr + ' ')
   mkdir -p "$dst"
-  find "$dst" -mtime +7 | xargs rm -rf  # Remove old files
+  find "$dst" -mtime +7 -a -name \*.zip | xargs rm -rf  # Remove old files
   cp $arc.zip "$dst"/$arc.zip
 done
