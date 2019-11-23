@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; Based on "Keyboard key kills and remaps (for Windows users)"
+; (https://isenselabs.com/posts/keyboard-key-kills-and-remaps-for-windows-users[
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,03,00,00,00,1d,00,3a,00,3a,00,1d,00,00,00,00,00

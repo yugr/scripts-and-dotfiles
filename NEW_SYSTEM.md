@@ -31,6 +31,7 @@ $ git config --global user.email user@server.com
 
 For Cygwin also
 * run SetupContextMenu.reg (depends on chere)
+* run SwapCtrlCaps.reg
 * (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
 * add cron to Windows services:
 ```
