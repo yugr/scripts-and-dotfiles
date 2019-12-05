@@ -168,12 +168,19 @@ nnoremap <F7> <C-W>k<C-W>_
 inoremap <F7> <Esc><C-W>k<C-W>_a
 nnoremap <F8> <C-W>j<C-W>_
 inoremap <F8> <Esc><C-W>j<C-W>_a
+nnoremap <S-F7> <C-W>h<C-W>\|
+inoremap <S-F7> <Esc><C-W>h<C-W>\|a
+nnoremap <S-F8> <C-W>l<C-W>\|
+inoremap <S-F8> <Esc><C-W>l<C-W>\|a
+
+nnoremap <C-W>M <C-W>\| <C-W>_
+nnoremap <C-W>m <C-W>=
 
 " Navigate tabs
-nnoremap <S-F7> :tabprev<CR>
-inoremap <S-F7> <Esc>:tabprev<CR>
-nnoremap <S-F8> :tabnext<CR>
-inoremap <S-F8> <Esc>:tabnext<CR>
+nnoremap <C-F7> :tabprev<CR>
+inoremap <C-F7> <Esc>:tabprev<CR>
+nnoremap <C-F8> :tabnext<CR>
+inoremap <C-F8> <Esc>:tabnext<CR>
 
 " Save and exit
 nnoremap <F10> <Esc>:x<CR>
