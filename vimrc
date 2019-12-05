@@ -15,6 +15,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'inkarkat/vim-mark'
   Plug 'luochen1990/rainbow'
   let g:rainbow_active = 1
+  Plug 'tpope/vim-fugitive'
 
   call plug#end()
  endif
