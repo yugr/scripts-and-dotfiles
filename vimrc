@@ -16,6 +16,8 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'luochen1990/rainbow'
   let g:rainbow_active = 1
   Plug 'tpope/vim-fugitive'
+"  Plug 'tpope/vim-sleuth'
+  Plug 'vim-scripts/yaifa.vim'
 
   call plug#end()
  endif
@@ -45,7 +47,7 @@ if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
 endif
 
 filetype plugin on 
-filetype indent off  " Builtin indents are weird...
+"filetype indent off  " Builtin indents are weird...
 syntax enable
 
 set title
