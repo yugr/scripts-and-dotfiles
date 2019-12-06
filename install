@@ -17,4 +17,9 @@ for cfg_cmd in \
   echo "$cmd $cfg" >> $HOME/.$f
 done
 
+for f in $(cd $D && find .vim -type f); do
+  mkdir -p $HOME/$(dirname $f)
+  ln -s $D/$f $HOME/$f
+done
+
 echo "PATH=$D/bin:$PATH" >> $HOME/.bashrc
