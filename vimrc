@@ -48,7 +48,9 @@ filetype plugin on
 filetype indent off  " Builtin indents are weird...
 syntax enable
 
+set title
 set ruler
+set laststatus=2
 set hlsearch
 set noincsearch
 set showcmd
@@ -59,11 +61,8 @@ set showmatch
 set background=dark 
 set scrolloff=3
 set sidescrolloff=5
-"set number
 set complete-=i  " Too slow...
 set history=10000
-set title
-set laststatus=2
 
 " Silence
 set noerrorbells
@@ -130,7 +129,8 @@ let g:netrw_preview=1
 let g:netrw_alto=0
 
 " Use syntax folds
-set foldmethod=manual  " Syntax is better but too slow...
+set foldmethod=manual
+"set foldmethod=syntax  " Better but too slow...
 set foldminlines=3
 
 " Custom bindings
