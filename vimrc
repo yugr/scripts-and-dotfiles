@@ -18,6 +18,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
 "  Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-repeat'
   Plug 'vim-scripts/yaifa.vim'
 
   call plug#end()
@@ -52,13 +53,8 @@ filetype plugin on
 syntax enable
 
 set title
-set ruler
-set laststatus=2
-set hlsearch
-set noincsearch
 set showcmd
 set nodigraph
-set nowrapscan
 set wrap
 set showmatch
 set background=dark 
@@ -66,6 +62,12 @@ set scrolloff=3
 set sidescrolloff=5
 set complete-=i  " Too slow...
 set history=10000
+set nonumber
+
+" Search options
+set hlsearch
+set noincsearch
+set nowrapscan
 
 " Silence
 set noerrorbells
@@ -81,7 +83,6 @@ set listchars+=precedes:<,extends:>
 
 " Disable backup files
 set nobackup
-set noswapfile
 
 " Dictionary (install wamerican)
 set dictionary=/usr/share/dict/words
@@ -97,6 +98,8 @@ set wildmenu
 set wildignore+=*.swp,*~,*.o,*.obj,*.py[co],*.class
 
 " Nicer status line
+set ruler
+set laststatus=2
 highlight StatusLine cterm=bold ctermfg=white ctermbg=blue
 
 " Highlight current line
