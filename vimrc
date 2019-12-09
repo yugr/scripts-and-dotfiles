@@ -16,6 +16,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'luochen1990/rainbow'
   let g:rainbow_active = 1
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-surround'
 "  Plug 'tpope/vim-sleuth'
   Plug 'vim-scripts/yaifa.vim'
 
