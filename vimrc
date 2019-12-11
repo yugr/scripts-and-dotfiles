@@ -54,15 +54,20 @@ syntax enable
 
 set title
 set showcmd
+set nonumber
+set showmatch
 set nodigraph
 set wrap
-set showmatch
 set background=dark 
-set scrolloff=3
-set sidescrolloff=5
 set complete-=i  " Too slow...
 set history=10000
-set nonumber
+
+" Scroll options
+set scrolloff=3
+set sidescrolloff=5
+
+" Search tags from current directory up first, then from file's directory
+set tags=tags;/,./tags;/
 
 " Search options
 set hlsearch
