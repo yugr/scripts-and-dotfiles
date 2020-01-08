@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Based on https://stackoverflow.com/a/32833411/2170527
+
+set -eu
+set -x
+
+CNTX=users  # orgs
+NAME=yugr  # orgname
+
+curl "https://api.github.com/$CNTX/$NAME/repos?page=1&per_page=100" \
+  | grep -e 'git_url*' \
+  | grep -v '\(gcc\|libarchive\|pylint\)\.git' \
+  | cut -d \" -f 4 \
+  | xargs -L1 git clone --bare
+tar czf $(basename $0).tgz *
