@@ -1,0 +1,7 @@
+[user]
+  name = Yury Gribov
+  email = tetra2005@gmail.com
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false

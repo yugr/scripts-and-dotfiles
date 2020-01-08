@@ -17,6 +17,11 @@ for cfg_cmd in \
   echo "$cmd $cfg" >> $HOME/.$f
 done
 
+cat >> $HOME/$f <<EOF
+[include]
+    path = $D/gitconfig
+EOF
+
 for f in $(cd $D && find .vim -type f); do
   mkdir -p $HOME/$(dirname $f)
   ln -s $D/$f $HOME/$f
