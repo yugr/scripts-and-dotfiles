@@ -1,17 +1,8 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
+if set -o | grep -q pipefail; then set -o pipefail; fi
 set -x
-
-try_broser() {
-  if test -x "$1"; then
-    export BROWSER="$1"
-    return 0
-  fi
-  return 1
-}
-
-set +e
 
 if test -n "${GOOGLE_BROWSER:-}"; then
   if ! test -x "$GOOGLE_BROWSER"; then

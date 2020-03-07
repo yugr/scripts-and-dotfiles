@@ -1,6 +1,7 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
+if set -o | grep -q pipefail; then set -o pipefail; fi
 set -x
 
 D=$(dirname $0)

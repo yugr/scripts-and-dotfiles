@@ -224,5 +224,5 @@ augroup Binary
 augroup END
 
 " Abbreviations
-iabbrev binsh #!/bin/sh<CR><CR>set -euo pipefail<CR>set -x<CR>
+iabbrev binsh #!/bin/sh<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/perl<CR><CR>use strict;<CR>use warnings;<CR><CR>
