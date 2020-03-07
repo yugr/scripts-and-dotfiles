@@ -2,7 +2,7 @@ set nocompatible
 
 " Setup vim-plug plugins
 if filereadable(expand('~/.vim/autoload/plug.vim'))
-  let g:plug_home='~/.vim/plugged'
+  let g:plug_home=expand('~/.vim/plugged')
   if has('win32unix') && executable('cygpath')
     " Use mixed path on Cygwin so that Windows git works
     let g:plug_home = split(system('cygpath -m ' . g:plug_home), "\r*\n")[0]
@@ -28,7 +28,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
 if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
   filetype off
 
-  set rtp+=~/.vim/bundle/Vundle.vim
+  set rtp+=expand('~/.vim/bundle/Vundle.vim')
   let vimdir = '~/.vim/bundle'
   if has('win32unix')
     " Use mixed path on Cygwin so that Windows git works
