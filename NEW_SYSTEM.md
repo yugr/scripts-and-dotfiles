@@ -4,11 +4,11 @@ Additional packages to install:
 * gcc g++ gdb
 * make cmake
 * autoconf automake autogen autopoint libtool
-* ctags patch patchutils
+* ctags vim-youcompleteme patch patchutils
 * bison flex
 * python python3 python-pip python3-pip perl
 * git subversion
-* wget curl openssh screen
+* wget curl openssh screen tmux
 * vim dos2unix manpages bash-completion cron
 * bzip2 zip
 * ascii
