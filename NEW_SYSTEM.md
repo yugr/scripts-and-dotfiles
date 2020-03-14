@@ -9,7 +9,7 @@ Additional packages to install:
 * python python3 python-pip python3-pip perl
 * git subversion
 * wget curl openssh screen tmux
-* vim dos2unix manpages bash-completion cron
+* vim-gtk dos2unix manpages bash-completion cron
 * bzip2 zip
 * ascii
 * (Cygwin only) apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)

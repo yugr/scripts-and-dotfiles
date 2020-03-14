@@ -180,17 +180,6 @@ alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
 
-  pwdw() {
-    cygpath -w $PWD
-  }
-  whichw() {
-    cygpath -w $(which "$1")
-  }
-  pwdwclip() {
-    pwdw | tr -d '\r\n' | clip
-  }
-
-  # TODO: add Linux analog
   pwdclip() {
     pwd | tr -d '\r\n' | clip
   }
@@ -202,6 +191,16 @@ if test "$(uname -o)" = Cygwin; then
     trap "rm -f $S" EXIT
     echo "set shell = CreateObject(\"WScript.Shell\"): shell.SendKeys \"echo ^y | tr -d '\r\n' | clip{ENTER}\"" > $S
     cscript //B $(cygpath -w $S)
+  }
+
+  pwdw() {
+    cygpath -w $PWD
+  }
+  whichw() {
+    cygpath -w $(which "$1")
+  }
+  pwdwclip() {
+    pwdw | tr -d '\r\n' | clip
   }
 
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
@@ -223,6 +222,10 @@ if test "$(uname -o)" = Cygwin; then
   }
 else
   alias o=xdg-open
+
+  pwdclip() {
+    pwd | tr -d '\r\n' | xclip -selection clipboard
+  }
 fi
 
 # TODO: forward Git autocompletions
