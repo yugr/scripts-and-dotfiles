@@ -158,10 +158,6 @@ inoremap <C-L> <Right>
 nnoremap <F2> :w!<CR>
 inoremap <F2> <Esc>:w!<CR>a
 
-" Save all buffers 
-nnoremap <S-F2> :wa!<CR>
-inoremap <S-F2> <Esc>:wa!<CR>a
-
 " Toggle line numbers
 nnoremap <F1> :call MyToggleNumbering()<CR>
 
