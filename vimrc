@@ -144,6 +144,9 @@ set foldmethod=manual
 "set foldmethod=syntax  " Better but too slow...
 set foldminlines=3
 
+" Better leader
+let mapleader = " "
+
 " Custom bindings
 
 inoremap <C-H> <Left>
@@ -161,6 +164,9 @@ inoremap <S-F2> <Esc>:wa!<CR>a
 
 " Toggle line numbers
 nnoremap <F1> :call MyToggleNumbering()<CR>
+
+" Toggle case-sensitive search
+nnoremap <Leader>i :set ic!<CR>
 
 " Navigate errors/vimgrep results
 nnoremap <F3> :cprev<CR>
@@ -207,9 +213,6 @@ inoremap <S-F11> <Esc>:qa!<CR>
 
 " Alias for Esc
 inoremap jj <Esc>
-
-" Better leader
-let mapleader = " "
 
 " Toggle hlsearch
 nnoremap <Leader><Space> :set hlsearch!<CR>
