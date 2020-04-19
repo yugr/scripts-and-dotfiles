@@ -6,6 +6,7 @@ BACKUP_SOURCES="
   $HOME/.vimrc
   $HOME/.backuprc
   $HOME/.persistent_history
+  $HOME/.ssh/config
   $HOME/bin
   $HOME/docs
   /var/cron/tabs/$USER

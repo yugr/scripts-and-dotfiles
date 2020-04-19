@@ -44,6 +44,9 @@ mkdir $arc
 
 for src in $BACKUP_SOURCES; do
   src=$(echo "$src" | tr + ' ')
+  if test -e "$src"; then
+    echo &>2 "warning: '$src' does not exist"
+  fi
   if ! cp -r "$src" $arc; then
     echo >&2 "Failed to copy $src to $arc"
   fi
