@@ -19,7 +19,7 @@ for cfg_cmd in \
   echo "$cmd $D/$cfg" >> $HOME/.$cfg
 done
 
-cat >> $HOME/$f <<EOF
+cat >> $HOME/.gitconfig <<EOF
 [include]
     path = $D/gitconfig
 EOF
@@ -29,4 +29,4 @@ for f in $(cd $D && find .vim -type f); do
   ln -s $D/$f $HOME/$f
 done
 
-echo "PATH=$D/bin:$PATH" >> $HOME/.bashrc
+echo "PATH=$D/bin:\$PATH" >> $HOME/.bashrc
