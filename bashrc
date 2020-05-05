@@ -53,6 +53,10 @@ vimgrep() {
   vim $(grep -r -l -i "$1" ${2:-.}) +':set ic hls' +1 +/"$1"
 }
 
+vimconflicts() {
+  vim $(git diff --name-only --diff-filter=U)
+}
+
 cdmd() {
   if mkdir -p "$1"; then
     cd "$1"
