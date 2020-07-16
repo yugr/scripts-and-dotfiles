@@ -4,7 +4,7 @@
 # define BACKUP_SOURCES and BACKUP_DESTS in $HOME/.backuprc.
 # 
 # To install, add to crontab:
-#   10 00 * * * PATH="/bin:/usr/bin:$HOME/bin:$PATH"; /bin/sh $HOME/bin/backup.sh 2>$HOME/backup.err
+#   00 22 * * * PATH="/bin:/usr/bin:$HOME/bin:$PATH"; /bin/sh path/to/bin/backup 2>$HOME/backup.err
 
 set -eux
 
@@ -44,8 +44,9 @@ mkdir $arc
 
 for src in $BACKUP_SOURCES; do
   src=$(echo "$src" | tr + ' ')
-  if test -e "$src"; then
-    echo &>2 "warning: '$src' does not exist"
+  if ! test -e "$src"; then
+    echo >&2 "warning: '$src' does not exist"
+    continue
   fi
   if ! cp -r "$src" $arc; then
     echo >&2 "Failed to copy $src to $arc"
