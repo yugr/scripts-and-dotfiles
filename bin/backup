@@ -54,7 +54,7 @@ for src in $BACKUP_SOURCES; do
 done
 
 # Symlinks
-ls -l $HOME | grep -- '->' > $arc/links.txt
+ls -l $HOME | (grep -- '->' || true) > $arc/links.txt
 
 zip -q -r $arc.zip $arc
 
