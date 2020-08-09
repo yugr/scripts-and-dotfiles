@@ -3,3 +3,15 @@ defscrollback 8192
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%n: %t"
+
+mousetrack on
+
+# Ctrl-F3, Ctrl-F4 to iterate windows
+bindkey "[1;5R" prev
+bindkey "[1;5S" next
+
+# Ctrl-A + arrows to navigate layout
+bindkey "OA" focus up
+bindkey "OB" focus down
+bindkey "OD" focus left
+bindkey "OC" focus right
