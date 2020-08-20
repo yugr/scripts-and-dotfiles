@@ -27,6 +27,9 @@ Setup git:
 ```
 $ git config --global user.name 'User Name'
 $ git config --global user.email user@server.com
+$ git config merge.tool vimdiff
+$ git config merge.conflictstyle diff3
+$ git config mergetool.prompt false
 ```
 
 For Cygwin also
