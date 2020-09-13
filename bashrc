@@ -52,7 +52,7 @@ vimfind() {
 }
 
 vimgrep() {
-  vim $(grep -r -l -i "$1" ${2:-.}) +':set ic hls' +1 +/"$1"
+  vim $(grep -r -l -i "$1" ${2:-.} | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$1"
 }
 
 vimconflicts() {
@@ -265,6 +265,7 @@ alias gtan='git annotate'
 alias gtcl='git clone'
 alias gtsb='git show-branch'
 alias gtft='git fetch'
+alias gtm='git merge'
 
 # Enable Git completions for aliases
 if [ -f "/usr/share/bash-completion/completions/git" ]; then
@@ -277,9 +278,13 @@ if [ -f "/usr/share/bash-completion/completions/git" ]; then
   done
 fi
 
-gtpo() {
+gtp() {
   local B=$(git branch | awk '/^\*/{print $2}')
-  git push -u "$@" origin "$B"
+  git push -u "$@" "$B"
+}
+
+gtpo() {
+  gtp "$@" origin
 }
 
 alias c=gcc c+=g++
