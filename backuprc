@@ -1,5 +1,6 @@
 # Config file for simple-backup
 
+# List of files/folders which need to be backed up
 # TODO: add other important folders
 BACKUP_SOURCES="
   $HOME/.bashrc
@@ -15,5 +16,9 @@ BACKUP_SOURCES="
   $(cygpath "$LOCALAPPDATA/Google/Chrome/User Data/default/Bookmarks" | tr ' ' +)
 "
 
+# List of destination folders where backups should be stored in
 BACKUP_DESTS="$(cygpath "$USERPROFILE/Downloads")
 "
+
+# Number of days after which backups can be removed
+TTL=7

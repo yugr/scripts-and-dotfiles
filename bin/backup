@@ -61,6 +61,6 @@ zip -q -r $arc.zip $arc
 for dst in $BACKUP_DESTS; do
   dst=$(echo "$dst/backups/$(hostname)" | tr + ' ')
   mkdir -p "$dst"
-  find "$dst" -mtime +7 -a -name \*.zip | xargs rm -rf  # Remove old files
+  find "$dst" -mtime +$TTL -a -name \*.zip | xargs rm -rf  # Remove old files
   cp $arc.zip "$dst"/$arc.zip
 done
