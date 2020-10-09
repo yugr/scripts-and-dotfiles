@@ -20,6 +20,8 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
 "  Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-repeat'
   Plug 'vim-scripts/yaifa.vim'
+  Plug 'unblevable/quick-scope'
+  Plug 'vim-scripts/YankRing.vim'
 
   call plug#end()
  endif
@@ -212,6 +214,9 @@ inoremap jj <Esc>
 
 " Toggle hlsearch
 nnoremap <Leader><Space> :set hlsearch!<CR>
+
+" Helper for YRShow
+nnoremap <Leader>y :YRShow<CR>
 
 " vim -b : edit binary using xxd-format!
 augroup Binary
