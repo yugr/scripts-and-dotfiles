@@ -174,7 +174,7 @@ if test -d /proc; then
   alias mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
 fi
 alias md='mkdir -p'
-alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O' vf='vimfind'
+alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O' vf='vimfind' vg='vimgrep'
 alias f=find
 alias g=goodgrep gr='goodgrep -r' gh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
