@@ -194,7 +194,7 @@ if test "$(uname -o)" = Cygwin; then
   rl2clip() {
     local S
     S=$(mktemp --suffix=.vbs)
-    trap "rm -f $S" EXIT
+    trap "rm -f $S" EXIT INT TERM
     echo "set shell = CreateObject(\"WScript.Shell\"): shell.SendKeys \"echo ^y | tr -d '\r\n' | clip{ENTER}\"" > $S
     cscript //B $(cygpath -w $S)
   }

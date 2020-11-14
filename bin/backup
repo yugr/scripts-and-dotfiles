@@ -36,7 +36,7 @@ fi
 . $HOME/.backuprc
 
 TMP=$(mktemp -d)
-trap "rm -rf $TMP" EXIT
+trap "rm -rf $TMP" EXIT INT TERM
 cd $TMP
 
 arc=backup-$(date +%F)
