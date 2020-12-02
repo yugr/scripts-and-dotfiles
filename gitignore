@@ -1,0 +1,17 @@
+# Binaries
+*.o
+*.obj
+core
+
+# Editors
+.*.swp
+
+# Bytecode
+__pycache__
+*.py[cod]
+*.swp
+
+# Pytest
+.cache
+*.coverage
+*coverage.xml

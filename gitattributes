@@ -1,0 +1,12 @@
+* text=auto
+
+*.h     text
+*.hpp   text
+*.cpp   text
+*.cc    text
+*.td    text
+*.py    text
+*.sh    text
+*.txt   text
+*.cmake text
+
