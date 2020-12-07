@@ -43,5 +43,6 @@ $ cron-config
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
+* disable Windows sounds (in "Change system sounds" in settings)
 
 Finally, setup mouse highlight in OS.
