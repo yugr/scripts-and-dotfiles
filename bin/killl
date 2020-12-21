@@ -20,13 +20,13 @@ fi
 status=0
 
 # Stop parent so that it does not respawn children
-kill -SIGSTOP $pid || status=1
+kill -STOP $pid || status=1
 
 for kid in $(ps -o pid --no-headers --ppid $pid); do
   killl $sig $kid || status=1
 done
 
 # Need to continue stopped process so that system can kill it
-kill $sig $pid && kill -SIGCONT $pid || status=1
+kill $sig $pid && kill -CONT $pid || status=1
 
 exit $status
