@@ -22,6 +22,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'vim-scripts/yaifa.vim'
   Plug 'unblevable/quick-scope'
   Plug 'vim-scripts/YankRing.vim'
+  Plug 'kien/ctrlp.vim'
 
   call plug#end()
  endif
@@ -230,3 +231,13 @@ augroup END
 " Abbreviations
 iabbrev binsh #!/bin/sh<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/perl<CR><CR>use strict;<CR>use warnings;<CR><CR>
+
+" CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
+function! SwitchHeader()
+    let g:ctrlp_default_input = expand('%:t:r')
+    call ctrlp#init(0)
+    call feedkeys("\<cr>")
+    unlet g:ctrlp_default_input
+endfunction
+
+map <Leader>h :call SwitchHeader()<CR>
