@@ -229,8 +229,12 @@ if test "$(uname -o)" = Cygwin; then
 else
   alias o=xdg-open
 
+  clip() {
+    xclip -selection clipboard
+  }
+
   pwdclip() {
-    pwd | tr -d '\r\n' | xclip -selection clipboard
+    pwd | tr -d '\r\n' | clip
   }
 fi
 
