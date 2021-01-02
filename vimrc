@@ -239,15 +239,16 @@ nnoremap <Leader>o :CtrlPMRUFiles<CR>
 " CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
 function! SwitchHeader(...)
   let g:ctrlp_default_input = expand('%:t:r')
-  let l:split = get(a:, 1, "i")
   call ctrlp#init(0)
+  "call feedkeys(":CtrlP .\<CR>", "t")
+  "call feedkeys(expand('%:t:r'), "t")
+  let l:split = get(a:, 1, "i")
   if l:split == 'h'
-    call feedkeys("\<c-s>")
+    call feedkeys("\<C-s>", "t")
   elseif l:split == 'v'
-    call feedkeys("\<c-v>")
+    call feedkeys("\<C-v>", "t")
   else
-    call feedkeys("\<cr>")
+    call feedkeys("\<CR>")
   endif
   unlet g:ctrlp_default_input
 endfunction
-command -nargs=* SwitchHeader :call SwitchHeader(<f-args>)
