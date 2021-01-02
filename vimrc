@@ -232,12 +232,22 @@ augroup END
 iabbrev binsh #!/bin/sh<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/perl<CR><CR>use strict;<CR>use warnings;<CR><CR>
 
-" CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
-function! SwitchHeader()
-    let g:ctrlp_default_input = expand('%:t:r')
-    call ctrlp#init(0)
-    call feedkeys("\<cr>")
-    unlet g:ctrlp_default_input
-endfunction
-
+" CtrlP
 map <Leader>h :call SwitchHeader()<CR>
+nnoremap <Leader>o :CtrlPMRUFiles<CR>
+
+" CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
+function! SwitchHeader(...)
+  let g:ctrlp_default_input = expand('%:t:r')
+  let l:split = get(a:, 1, "i")
+  call ctrlp#init(0)
+  if l:split == 'h'
+    call feedkeys("\<c-s>")
+  elseif l:split == 'v'
+    call feedkeys("\<c-v>")
+  else
+    call feedkeys("\<cr>")
+  endif
+  unlet g:ctrlp_default_input
+endfunction
+command -nargs=* SwitchHeader :call SwitchHeader(<f-args>)
