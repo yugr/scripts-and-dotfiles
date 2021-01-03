@@ -1,40 +1,35 @@
 Instructions for setting up new Linux systems.
 
-Additional packages to install:
+# Additional packages
+
+Install system packages
 * gcc g++ gdb
 * make cmake
 * autoconf automake autogen autopoint libtool
 * ctags vim-youcompleteme patch patchutils
 * bison flex
-* python python3 python-pip python3-pip perl
+* python python-pip python3 python3-pip perl
 * git subversion
 * wget curl openssh screen tmux
 * vim-gtk dos2unix manpages bash-completion cron
 * bzip2 zip
 * ascii
-* (Cygwin only) apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
-* (Cygwin only) [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
-* (Cygwin only) chere (for SetupContextMenu.reg)
 
-Python packages:
+and Python packages:
 * virtualenv pylint tox
 
-Other packages:
-* https://github.com/vigneshwaranr/bd
+Install
 * https://www.ostechnix.com/use-google-translate-commandline-linux/ (https://github.com/soimort/translate-shell)
 
-Setup git:
-```
-$ git config --global user.name 'User Name'
-$ git config --global user.email user@server.com
-$ git config merge.tool vimdiff
-$ git config merge.conflictstyle diff3
-$ git config mergetool.prompt false
-```
+# Cygwin setup
 
-For Cygwin also
+Install packages:
+* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
+* [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
+* chere (for SetupContextMenu.reg)
+
+Also
 * run SetupContextMenu.reg (depends on chere)
-* run SwapCtrlCaps.reg
 * (if Windows git is used) copy `/cygdrive/C/Program Files/Git/mingw64/share/git/completion/git-completion.bash` to `/usr/share/bash-completion/completions/git`
 * add cron to Windows services:
 ```
@@ -43,6 +38,20 @@ $ cron-config
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
-* disable Windows sounds (in "Change system sounds" in settings)
 
-Finally, setup mouse highlight in OS.
+# Git setup
+
+```
+$ git config --global user.name 'User Name'
+$ git config --global user.email user@server.com
+$ git config merge.tool vimdiff
+$ git config merge.conflictstyle diff3
+$ git config mergetool.prompt false
+```
+
+# OS setup
+
+* (Windows) disable sounds in "Change system sounds" in Settings
+* (Windows) run SwapCtrlCaps.reg
+* mouse highlight
+* Vim mode in browser
