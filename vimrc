@@ -213,13 +213,13 @@ inoremap <S-F11> <Esc>:qa!<CR>
 " Alias for Esc
 inoremap jj <Esc>
 
-" Toggle hlsearch
+" Alias to toggle hlsearch
 nnoremap <Leader><Space> :set hlsearch!<CR>
 
-" Helper for YRShow
+" Alias for YRShow
 nnoremap <Leader>y :YRShow<CR>
 
-" vim -b : edit binary using xxd-format!
+" Edit binary using xxd-format
 augroup Binary
   au!
   au BufReadPre   *.bin,*.o,*.obj,*.exe let &bin=1
@@ -229,10 +229,10 @@ augroup Binary
 augroup END
 
 " Abbreviations
-iabbrev binsh #!/bin/sh<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
-iabbrev binpl #!/usr/bin/perl<CR><CR>use strict;<CR>use warnings;<CR><CR>
+iabbrev binsh #!/bin/sh<CR><C-O>:s/^#//e<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
+iabbrev binpl #!/usr/bin/perl<CR><C-O>:s/^#//e<CR><CR>use strict;<CR>use warnings;<CR>
 
-" CtrlP
+" CtrlP aliases
 map <Leader>h :call SwitchHeader()<CR>
 nnoremap <Leader>o :CtrlPMRUFiles<CR>
 
@@ -248,7 +248,7 @@ function! SwitchHeader(...)
   elseif l:split == 'v'
     call feedkeys("\<C-v>", "t")
   else
-    call feedkeys("\<CR>")
+    call feedkeys("\<CR>", "t")
   endif
   unlet g:ctrlp_default_input
 endfunction
