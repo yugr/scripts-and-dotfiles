@@ -21,8 +21,9 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'tpope/vim-repeat'
   Plug 'vim-scripts/yaifa.vim'
   Plug 'unblevable/quick-scope'
-  Plug 'vim-scripts/YankRing.vim'
+  Plug 'svermeulen/vim-yoink'
   Plug 'kien/ctrlp.vim'
+  let g:ctrlp_map = '<leader>p'
 
   call plug#end()
  endif
@@ -252,3 +253,9 @@ function! SwitchHeader(...)
   endif
   unlet g:ctrlp_default_input
 endfunction
+
+" Yoink mappings
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
