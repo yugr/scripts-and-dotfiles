@@ -17,9 +17,13 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   let g:rainbow_active = 1
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
-"  Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-repeat'
-  Plug 'vim-scripts/yaifa.vim'
+"  Plug 'tpope/vim-sleuth'
+  Plug 'Raimondi/yaifa'
+  let g:yaifa_max_lines = 6*1024
+  let g:yaifa_shiftwidth = 2
+  let g:yaifa_tabstop = 2
+  let g:yaifa_expandtab = 1
   Plug 'unblevable/quick-scope'
   Plug 'svermeulen/vim-yoink'
   Plug 'kien/ctrlp.vim'
