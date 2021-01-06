@@ -264,3 +264,7 @@ nmap <c-n> <plug>(YoinkPostPasteSwapBack)
 nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
+
+" Search visual selection
+" (from http://zzapper.co.uk/vimtips.html)
+vmap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
