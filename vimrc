@@ -92,7 +92,8 @@ set lazyredraw
 set ttyfast
 set lazyredraw
 
-set listchars+=precedes:<,extends:>
+set list
+set listchars=precedes:<,extends:>,tab:▸\ ,trail:▫
 
 " Disable backup files
 set nobackup
