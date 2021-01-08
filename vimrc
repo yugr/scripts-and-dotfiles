@@ -28,6 +28,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'svermeulen/vim-yoink'
   Plug 'kien/ctrlp.vim'
   let g:ctrlp_map = '<leader>p'
+  Plug 'psliwka/vim-smoothie'
 
   call plug#end()
  endif
