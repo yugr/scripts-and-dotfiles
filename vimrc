@@ -266,6 +266,9 @@ nmap <c-p> <plug>(YoinkPostPasteSwapForward)
 nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 
+" Speedup Smoothie
+let g:smoothie_base_speed = 25
+
 " Search visual selection
 " (from http://zzapper.co.uk/vimtips.html)
 vmap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
