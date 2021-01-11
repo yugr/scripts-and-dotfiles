@@ -56,7 +56,7 @@ vimgrep() {
 }
 
 vimconflicts() {
-  vim $(git diff --name-only --diff-filter=U)
+  vim +/'<<<<' $(git diff --name-only --diff-filter=U)
 }
 
 cdmd() {
