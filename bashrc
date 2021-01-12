@@ -153,17 +153,15 @@ watch-network() {
         echo 'Ignoring short connection loss...'
       else
         echo 'Connection lost'
-        DT=0
+        DT=$DT_MIN
       fi
-    elif test $DT -eq 0; then
-      DT=$DT_MIN
-    elif test $DT -lt $DT_MAX; then
-      DT=$((DT * 2))
-    elif test $DT -gt $DT_MAX; then
-      DT=$DT_MAX
     fi
     echo "Sleeping for $DT seconds..."
     sleep $DT
+    DT=$((DT * 2))
+    if test $DT -gt $DT_MAX; then
+      DT=$DT_MAX
+    fi
   done
 }
 
