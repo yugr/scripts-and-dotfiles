@@ -1,4 +1,4 @@
-Instructions for setting up new Linux systems.
+Instructions for setting up new machines.
 
 # Additional packages
 
@@ -8,7 +8,7 @@ Install system packages
 * autoconf automake autogen autopoint libtool
 * ctags vim-youcompleteme patch patchutils
 * bison flex
-* python python-pip python3 python3-pip perl
+* gawk python python-pip python3 python3-pip perl
 * git subversion
 * wget curl openssh screen tmux
 * vim-gtk dos2unix manpages bash-completion cron
