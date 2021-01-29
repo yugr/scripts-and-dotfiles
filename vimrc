@@ -238,6 +238,7 @@ augroup END
 " Abbreviations
 iabbrev binsh #!/bin/sh<CR><C-O>:s/^#//e<CR><CR>set -eu<CR>if set -o \| grep -q pipefail; then set -o pipefail; fi<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/perl<CR><C-O>:s/^#//e<CR><CR>use strict;<CR>use warnings;<CR>
+iabbrev helloworldc #include <stdio.h><CR>#include <string.h><CR>#include <stdlib.h><CR><CR>int main() {<CR><C-O>d0  printf("Hello world!\n");<CR><C-O>d0  return 0;<CR>}
 
 " CtrlP aliases
 map <Leader>h :call SwitchHeader()<CR>
