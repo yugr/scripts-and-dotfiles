@@ -130,7 +130,7 @@ if has('mouse')
   set mouse=a
 endif
 
-function MyToggleNumbering()
+function! MyToggleNumbering()
   if &number && &relativenumber
     set nonumber
     set norelativenumber
