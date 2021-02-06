@@ -241,31 +241,35 @@ iabbrev binpl #!/usr/bin/perl<CR><C-O>:s/^#//e<CR><CR>use strict;<CR>use warning
 iabbrev helloworldc #include <stdio.h><CR>#include <string.h><CR>#include <stdlib.h><CR><CR>int main() {<CR><C-O>d0  printf("Hello world!\n");<CR><C-O>d0  return 0;<CR>}
 
 " CtrlP aliases
-map <Leader>h :call SwitchHeader()<CR>
-nnoremap <Leader>o :CtrlPMRUFiles<CR>
+if exists('g:loaded_ctrlp')
+  map <Leader>h :call SwitchHeader()<CR>
+  nnoremap <Leader>o :CtrlPMRUFiles<CR>
 
-" CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
-function! SwitchHeader(...)
-  let g:ctrlp_default_input = expand('%:t:r')
-  call ctrlp#init(0)
-  "call feedkeys(":CtrlP .\<CR>", "t")
-  "call feedkeys(expand('%:t:r'), "t")
-  let l:split = get(a:, 1, "i")
-  if l:split == 'h'
-    call feedkeys("\<C-s>", "t")
-  elseif l:split == 'v'
-    call feedkeys("\<C-v>", "t")
-  else
-    call feedkeys("\<CR>", "t")
-  endif
-  unlet g:ctrlp_default_input
-endfunction
+  " CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
+  function! SwitchHeader(...)
+    let g:ctrlp_default_input = expand('%:t:r')
+    call ctrlp#init(0)
+    "call feedkeys(":CtrlP .\<CR>", "t")
+    "call feedkeys(expand('%:t:r'), "t")
+    let l:split = get(a:, 1, "i")
+    if l:split == 'h'
+      call feedkeys("\<C-s>", "t")
+    elseif l:split == 'v'
+      call feedkeys("\<C-v>", "t")
+    else
+      call feedkeys("\<CR>", "t")
+    endif
+    unlet g:ctrlp_default_input
+  endfunction
+endif
 
 " Yoink mappings
-nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
+if exists('g:yoinkInitialized')
+  nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+  nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
+endif
 
 " Speedup Smoothie
 let g:smoothie_base_speed = 25
