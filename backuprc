@@ -7,6 +7,7 @@ BACKUP_SOURCES="
   $HOME/.vimrc
   $HOME/.backuprc
   $HOME/.persistent_history
+  $HOME/.gitconfig
   $HOME/.ssh/config
   $HOME/bin
   $HOME/docs
