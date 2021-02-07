@@ -244,7 +244,7 @@ iabbrev helloworldc #include <stdio.h><CR>#include <string.h><CR>#include <stdli
 
 " CtrlP aliases
 if exists('g:loaded_ctrlp')
-  map <Leader>h :call SwitchHeader()<CR>
+  nnoremap <Leader>h :call SwitchHeader()<CR>
   nnoremap <Leader>o :CtrlPMRUFiles<CR>
 
   " CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
