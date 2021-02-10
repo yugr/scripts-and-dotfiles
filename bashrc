@@ -247,6 +247,7 @@ alias gtb='git branch'
 alias gtba='git branch -a'
 alias gtbd='git branch -D'
 alias gtl='git log'
+alias gtlp='git log -p'
 for N in $(seq 1 20); do alias "gtl$N=git log -n$N"; done
 alias gtlg='git log --graph'
 alias gta='git add'
