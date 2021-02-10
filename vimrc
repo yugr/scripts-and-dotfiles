@@ -33,7 +33,11 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'joe-skb7/cscope-maps'
 
   call plug#end()
- endif
+
+  function! IsPluginLoaded(name)
+    return has_key(g:plugs, a:name)
+  endfunction
+endif
 
 " Setup Vundle plugins
 if 0 && isdirectory(expand('~/.vim/bundle/Vundle.vim'))
@@ -243,7 +247,7 @@ iabbrev binpl #!/usr/bin/perl<CR><C-O>:s/^#//e<CR><CR>use strict;<CR>use warning
 iabbrev helloworldc #include <stdio.h><CR>#include <string.h><CR>#include <stdlib.h><CR><CR>int main() {<CR><C-O>d0  printf("Hello world!\n");<CR><C-O>d0  return 0;<CR>}
 
 " CtrlP aliases
-if exists('g:loaded_ctrlp')
+if IsPluginLoaded('ctrlp.vim')
   nnoremap <Leader>h :call SwitchHeader()<CR>
   nnoremap <Leader>o :CtrlPMRUFiles<CR>
 
@@ -266,7 +270,7 @@ if exists('g:loaded_ctrlp')
 endif
 
 " Yoink mappings
-if exists('g:yoinkInitialized')
+if IsPluginLoaded('vim-yoink')
   nmap <c-n> <plug>(YoinkPostPasteSwapBack)
   nmap <c-p> <plug>(YoinkPostPasteSwapForward)
   nmap p <plug>(YoinkPaste_p)
