@@ -165,6 +165,23 @@ watch-network() {
   done
 }
 
+reindex() {
+  local tags
+  if test $(find ${1:-.} -name \*.cpp -o -name \*.cc | wc -l) -gt 0; then
+    tags=cpptags
+  elif test $(find ${1:-.} -name \*.cpp -o -name \*.cc | wc -l) -gt 0; then
+    tags=ctags
+  elif test $(find ${1:-.} -name \*.py | wc -l) -gt 0; then
+    tags=pytags
+  fi
+  echo Running $tags...
+  $tags -R ${1:-.}
+  if which cscope >/dev/null 2>&1; then
+    echo Running cscope...
+    (cd ${1:-.} && cscope -Rb)
+  fi
+}
+
 alias m='nice make' mi='nice make install' mck='nice make -k check'
 if test -d /proc; then
   alias mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)"
