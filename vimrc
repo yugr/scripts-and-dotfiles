@@ -31,6 +31,7 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'psliwka/vim-smoothie'
   set nocscopeverbose
   Plug 'joe-skb7/cscope-maps'
+  Plug 'junegunn/gv.vim'
 
   call plug#end()
 
