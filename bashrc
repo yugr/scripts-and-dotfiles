@@ -76,6 +76,10 @@ yell() {
     rundll32 user32.dll,MessageBeep
     cmd /c "msg $USER \"$msg\""
     ;;
+  *Linux*)
+    # TODO: beep
+    notify-send "Message from $$" "$msg"
+    ;;
   *)
     echo >&2 "Don't know how to notify on $(uname -o)"
     ;;
