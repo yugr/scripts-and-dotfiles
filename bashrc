@@ -312,6 +312,20 @@ gtpo() {
   gtp "$@" origin
 }
 
+# Faster scp for large trees of small files
+fast-scp() {
+  local files
+  while test $# -gt 1; do
+    files="$files $1"
+    shift
+  done
+  local server dst
+  server=$(echo "$1" | awk -F: '{print $1}')
+  dst=$(echo "$1" | awk -F: '{print $2}')
+  # Based on https://unix.stackexchange.com/a/238207
+  tar czf - $files | ssh $server tar xvzfC - $dst
+}
+
 alias c=gcc c+=g++
 
 # Wrappers for https://www.ostechnix.com/use-google-translate-commandline-linux/
