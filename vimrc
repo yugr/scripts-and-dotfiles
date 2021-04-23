@@ -38,6 +38,10 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   function! IsPluginLoaded(name)
     return has_key(g:plugs, a:name)
   endfunction
+else
+  function! IsPluginLoaded(name)
+    return 0
+  endfunction
 endif
 
 " Setup Vundle plugins
