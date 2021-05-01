@@ -71,7 +71,7 @@ yell() {
   if test -n "$1"; then
     msg="${msg}: $1"
   fi
-  case $(uname -o) in
+  case "$(uname -o)" in
   Cygwin)
     rundll32 user32.dll,MessageBeep
     cmd /c "msg $USER \"$msg\""
