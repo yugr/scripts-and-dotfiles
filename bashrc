@@ -200,7 +200,7 @@ alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
 alias fgfg=fg fg1='fg 1' fg2='fg 2' fg3='fg 3' fg4='fg 4'
 alias bg1='bg 1' bg2='bg 2' bg3='bg 3' bg4='bg 4'
 alias ww=which
-alias cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
+alias cd-='cd -' cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
