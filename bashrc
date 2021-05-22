@@ -30,7 +30,7 @@ persistent_history()
       shift
       ;;
     esac
-    grep "$@" < $HOME/.persistent_history | tail $N
+    grep --binary-files=text "$@" < $HOME/.persistent_history | tail $N
   fi
 }
 
