@@ -335,6 +335,7 @@ alias trans-ru='trans -s Russian -t English' trans-en='trans -s English -t Russi
 export VISUAL='vim -f'
 
 export PATH=$HOME/bin${PATH:+:$PATH}
+export PATH=$(dirname $BASH_SOURCE)/bin:$PATH
 
 shopt -s autocd
 shopt -s dirspell
