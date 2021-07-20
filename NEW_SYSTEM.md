@@ -51,7 +51,10 @@ $ git config mergetool.prompt false
 
 # OS setup
 
-* (Windows) disable sounds in "Change system sounds" in Settings
-* (Windows) run SwapCtrlCaps.reg
+* disable sounds
+  * (Windows) in "Change system sounds" in Settings
+  * (Gnome) `dconf write /org/gnome/desktop/sound/event-sounds false` and `dconf write /org/gnome/desktop/sound/input-feedback-sounds false`
+* swap CAPS/Ctrl:
+  * (Windows) run SwapCtrlCaps.reg
 * mouse highlight
 * Vim mode in browser
