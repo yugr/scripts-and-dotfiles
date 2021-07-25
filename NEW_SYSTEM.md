@@ -14,12 +14,10 @@ Install system packages
 * vim-gtk dos2unix manpages bash-completion cron
 * bzip2 zip
 * ascii
+* translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see also https://www.ostechnix.com/use-google-translate-commandline-linux)
 
 and Python packages:
 * virtualenv pylint tox
-
-Install
-* https://www.ostechnix.com/use-google-translate-commandline-linux/ (https://github.com/soimort/translate-shell)
 
 # Cygwin setup
 
