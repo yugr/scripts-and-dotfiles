@@ -230,7 +230,6 @@ inoremap <S-F11> <Esc>:qa!<CR>
 
 " Alias for Esc
 inoremap jj <Esc>
-inoremap оо <Esc>
 
 " Alias to toggle hlsearch
 nnoremap <Leader><Space> :set hlsearch!<CR>
@@ -289,3 +288,6 @@ let g:smoothie_base_speed = 25
 " Search visual selection
 " (from http://zzapper.co.uk/vimtips.html)
 vmap <silent> // y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+
+" Enter vim commands in Cyrillic mode
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
