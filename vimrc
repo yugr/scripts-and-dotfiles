@@ -230,6 +230,7 @@ inoremap <S-F11> <Esc>:qa!<CR>
 
 " Alias for Esc
 inoremap jj <Esc>
+inoremap оо <Esc>
 
 " Alias to toggle hlsearch
 nnoremap <Leader><Space> :set hlsearch!<CR>
