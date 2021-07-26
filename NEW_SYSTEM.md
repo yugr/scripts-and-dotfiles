@@ -15,6 +15,7 @@ Install system packages
 * bzip2 zip
 * ascii
 * translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see also https://www.ostechnix.com/use-google-translate-commandline-linux)
+* (Cygwin) man-pages-posix
 
 and Python packages:
 * virtualenv pylint tox
