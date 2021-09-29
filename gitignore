@@ -6,6 +6,9 @@ core
 # Editors
 .*.swp
 
+# Ctags
+tags
+
 # Bytecode
 __pycache__
 *.py[cod]
