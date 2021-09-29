@@ -13,6 +13,7 @@ BACKUP_SOURCES="
   $HOME/docs
   /var/cron/tabs/$USER
   /etc/fstab
+  /etc/hosts
   $(cygpath "$USERPROFILE/Links")
   $(cygpath "$LOCALAPPDATA/Google/Chrome/User Data/default/Bookmarks" | tr ' ' +)
 "
