@@ -55,5 +55,7 @@ $ git config mergetool.prompt false
   * (Gnome) `dconf write /org/gnome/desktop/sound/event-sounds false` and `dconf write /org/gnome/desktop/sound/input-feedback-sounds false`
 * swap CAPS/Ctrl:
   * (Windows) run SwapCtrlCaps.reg
+* disable thumbnail previews:
+  * (Windows) run ExtendedTime.reg
 * mouse highlight
 * Vim mode in browser
