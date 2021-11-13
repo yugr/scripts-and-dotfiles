@@ -26,6 +26,13 @@ Install packages:
 * apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
 * [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
 * chere (for SetupContextMenu.reg)
+* rar archiver:
+```
+wget http://www.rarlab.com/rar/unrarsrc-5.1.7.tar.gz
+tar xf unrarsrc-5.1.7.tar.gz
+cd unrar
+make && make install
+```
 
 Also
 * run SetupContextMenu.reg (depends on chere)
