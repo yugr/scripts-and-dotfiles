@@ -9,7 +9,7 @@ for cfg_cmd in \
     'backuprc;source' \
     'bashrc;source' \
     'gdbinit;source' \
-    '$include;inputrc' \
+    'inputrc;$include' \
     'screenrc;source' \
     'tmux.conf;source-file' \
     'vimrc;source'; do
