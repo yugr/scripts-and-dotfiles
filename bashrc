@@ -56,7 +56,9 @@ vimgrep() {
 }
 
 vimconflicts() {
-  vim +/'<<<<' $(git diff --name-only --diff-filter=U)
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel)
+  (cd $repo_root && vim +/'<<<<' $(git diff --name-only --diff-filter=U))
 }
 
 cdmd() {
