@@ -53,6 +53,12 @@ $ git config --global user.email user@server.com
 $ git config merge.tool vimdiff
 $ git config merge.conflictstyle diff3
 $ git config mergetool.prompt false
+$ git config --global credential.helper store
+```
+
+To reset password
+```
+$ git config --global --unset user.password
 ```
 
 # OS setup
