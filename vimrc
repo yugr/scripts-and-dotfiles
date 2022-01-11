@@ -249,7 +249,7 @@ augroup END
 " Abbreviations
 iabbrev binsh #!/bin/sh<CR><C-O>:s/^#//e<CR><CR>set -eu<CR>set -x<CR>
 iabbrev binpl #!/usr/bin/env perl<CR><C-O>:s/^#//e<CR><CR>use strict;<CR>use warnings;<CR>
-iabbrev binpy #!/usr/bin/env python<CR><C-O>:s/^#//e<CR><CR>import sys<CR>import re<CR>
+iabbrev binpy #!/usr/bin/env python3<CR><C-O>:s/^#//e<CR><CR>import sys<CR>import re<CR>
 iabbrev helloworldc #include <stdio.h><CR>#include <string.h><CR>#include <stdlib.h><CR><CR>int main() {<CR><C-O>d0  printf("Hello world!\n");<CR><C-O>d0  return 0;<CR>}
 
 " CtrlP aliases
