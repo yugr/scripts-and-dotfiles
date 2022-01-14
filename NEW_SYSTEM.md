@@ -12,7 +12,7 @@ Install system packages
 * git subversion
 * wget curl openssh screen tmux
 * vim-gtk dos2unix manpages bash-completion cron
-* bzip2 zip
+* bzip2 zip unzip
 * ascii
 * translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see also https://www.ostechnix.com/use-google-translate-commandline-linux)
 * (Cygwin) man-pages-posix
@@ -23,7 +23,7 @@ and Python packages:
 # Cygwin setup
 
 Install packages:
-* apt-cyg (see http://bovs.org/post/128/unix-podobnaya-sreda-v-windows)
+* [apt-cyg](https://github.com/transcode-open/apt-cyg)
 * [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
 * chere (for SetupContextMenu.reg)
 * rar archiver:
