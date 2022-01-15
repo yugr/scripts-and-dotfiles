@@ -1,5 +1,20 @@
 Instructions for setting up new machines.
 
+# OS setup
+
+* disable sounds
+  * (Windows) in "Change system sounds" in Settings
+  * (Gnome) `dconf write /org/gnome/desktop/sound/event-sounds false` and `dconf write /org/gnome/desktop/sound/input-feedback-sounds false`
+* swap CAPS/Ctrl:
+  * (Windows) run SwapCtrlCaps.reg
+* disable thumbnail previews:
+  * (Windows) run ExtendedTime.reg
+* get rid of useless preinstalled SW
+  * (Ubuntu) "Installed" tab in Ubuntu SW center
+  * (Windows) "Programs and Features" in Settings
+* mouse highlight
+* Vim mode in browser
+
 # Additional packages
 
 Install system packages
@@ -14,11 +29,29 @@ Install system packages
 * vim-gtk dos2unix manpages bash-completion cron
 * bzip2 zip unzip
 * ascii
-* translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see also https://www.ostechnix.com/use-google-translate-commandline-linux)
+* translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see [instructions](https://www.ostechnix.com/use-google-translate-commandline-linux))
 * (Cygwin) man-pages-posix
 
 and Python packages:
-* virtualenv pylint tox
+```
+$ sudo pip3 install virtualenv pylint tox
+```
+
+# Git setup
+
+```
+$ git config --global user.name 'User Name'
+$ git config --global user.email user@server.com
+$ git config --global merge.tool vimdiff
+$ git config --global merge.conflictstyle diff3
+$ git config --global mergetool.prompt false
+$ git config --global credential.helper store
+```
+
+To reset password
+```
+$ git config --global --unset user.password
+```
 
 # Cygwin setup
 
@@ -44,31 +77,3 @@ $ cron-config
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
-
-# Git setup
-
-```
-$ git config --global user.name 'User Name'
-$ git config --global user.email user@server.com
-$ git config merge.tool vimdiff
-$ git config merge.conflictstyle diff3
-$ git config mergetool.prompt false
-$ git config --global credential.helper store
-```
-
-To reset password
-```
-$ git config --global --unset user.password
-```
-
-# OS setup
-
-* disable sounds
-  * (Windows) in "Change system sounds" in Settings
-  * (Gnome) `dconf write /org/gnome/desktop/sound/event-sounds false` and `dconf write /org/gnome/desktop/sound/input-feedback-sounds false`
-* swap CAPS/Ctrl:
-  * (Windows) run SwapCtrlCaps.reg
-* disable thumbnail previews:
-  * (Windows) run ExtendedTime.reg
-* mouse highlight
-* Vim mode in browser
