@@ -77,3 +77,12 @@ $ cron-config
 *** Query: Enter the value of CYGWIN for the daemon: [] binmode ntsec
 ...
 ```
+
+# VirtualBox setup
+
+* Install Guest Additions (need `make`, `gcc` and `perl`)
+* Setup clipboard and shared folders in VM settings
+* Add your user to vboxsf group:
+```
+$ sudo adduser $USER vboxsf
+```
