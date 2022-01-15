@@ -19,7 +19,7 @@ Instructions for setting up new machines.
 
 Install system packages
 * gcc g++ gdb clang lld
-* make cmake
+* make cmake ninja-build
 * autoconf automake autogen autopoint libtool
 * ctags vim-youcompleteme patch patchutils
 * bison flex
