@@ -18,17 +18,17 @@ Instructions for setting up new machines.
 # Additional packages
 
 Install system packages
-* gcc g++ gdb
+* gcc g++ gdb clang lld
 * make cmake
 * autoconf automake autogen autopoint libtool
 * ctags vim-youcompleteme patch patchutils
 * bison flex
 * gawk python python-pip python3 python3-pip perl
 * git subversion
-* wget curl openssh screen tmux
-* vim-gtk dos2unix manpages bash-completion cron
+* wget curl openssh
+* screen tmux vim-gtk
+* dos2unix manpages bash-completion ascii
 * bzip2 zip unzip
-* ascii
 * translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see [instructions](https://www.ostechnix.com/use-google-translate-commandline-linux))
 * (Cygwin) man-pages-posix
 
