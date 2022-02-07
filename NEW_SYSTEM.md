@@ -1,6 +1,6 @@
 Instructions for setting up new machines.
 
-# OS setup
+# Common OS setup
 
 * disable sounds
   * (Windows) in "Change system sounds" in Settings
@@ -51,6 +51,13 @@ $ git config --global credential.helper store
 To reset password
 ```
 $ git config --global --unset user.password
+```
+
+# Linux setup
+
+Fix OOM:
+```
+echo 'vm.oom_kill_allocating_task = 1' | sudo tee -a /etc/sysctl.conf
 ```
 
 # Cygwin setup
