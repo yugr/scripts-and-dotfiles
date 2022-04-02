@@ -197,7 +197,7 @@ fi
 alias md='mkdir -p'
 alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O' vf='vimfind' vg='vimgrep'
 alias f=find
-alias g=goodgrep gr='goodgrep -r' gh=grephere
+alias g=goodgrep gr='goodgrep -R' grh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
 alias fgfg=fg fg1='fg 1' fg2='fg 2' fg3='fg 3' fg4='fg 4'
 alias bg1='bg 1' bg2='bg 2' bg3='bg 3' bg4='bg 4'
