@@ -8,9 +8,15 @@ set -x
 CNTX=users  # orgs
 NAME=yugr  # orgname
 
+if test $(ls -A | wc -l) != 0; then
+  echo >&2 "Run me in empty folder"
+  exit 1
+fi
+
 curl "https://api.github.com/$CNTX/$NAME/repos?page=1&per_page=100" \
   | grep -e 'git_url*' \
   | grep -v '\(gcc\|libarchive\|pylint\)\.git' \
+  | sed 's!git://!https://!' \
   | cut -d \" -f 4 \
-  | xargs -L1 git clone --bare
+  | xargs -L1 git clone
 tar czf $(basename $0).tgz *
