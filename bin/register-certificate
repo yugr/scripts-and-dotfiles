@@ -7,12 +7,12 @@ host=$1
 port=$2
 
 if ! which curl-config &>/dev/null; then
-  echo Please install curl-config from one of libcurl4-{gnutls,openssl,nss}-dev"
+  echo "Please install curl-config from one of libcurl4-{gnutls,openssl,nss}-dev"
   exit 1
 fi
 
 cert_location=`curl-config --ca`
 
-openssl s_client -showcerts -connect $host:$port -servername $host</dev/null 2>/dev/null \
+openssl s_client -showcerts -connect $host:$port -servername $host </dev/null 2>/dev/null \
   | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' \
-  | tee -a $cert_location
+  | sudo tee -a $cert_location
