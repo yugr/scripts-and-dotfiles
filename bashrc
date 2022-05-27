@@ -204,6 +204,7 @@ alias bg1='bg 1' bg2='bg 2' bg3='bg 3' bg4='bg 4'
 alias ww=which
 alias cd-='cd -' cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
 alias chmox='chmod +x'
+alias ...='cd ../..'
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
