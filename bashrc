@@ -205,6 +205,7 @@ alias ww=which
 alias cd-='cd -' cd..='cd ..' ..='cd ..' ...='cd ../..' ....='cd ../../..' .....='cd ../../../..'
 alias chmox='chmod +x'
 alias ...='cd ../..'
+alias -- -='cd -'
 
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
