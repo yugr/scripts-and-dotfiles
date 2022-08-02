@@ -149,13 +149,13 @@ newtab() {
 watch-network() {
   local DT_MIN=3
   local DT_MAX=60
-  local SITE=yandex.ru
+  local SITE=google.com
 
   DT=$DT_MIN
   while true; do
-    if ! ping -n 1 yandex.ru; then
+    if ! ping -n 1 $SITE; then
       sleep 1
-      if ping -n 1 yandex.ru; then
+      if ping -n 1 $SITE; then
         echo 'Ignoring short connection loss...'
       else
         echo 'Connection lost'
