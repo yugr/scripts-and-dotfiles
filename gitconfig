@@ -3,5 +3,7 @@
   email = tetra2005@gmail.com
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
   keepBackup = false
+  prompt = false
