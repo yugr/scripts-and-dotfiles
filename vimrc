@@ -28,7 +28,9 @@ if filereadable(expand('~/.vim/autoload/plug.vim'))
   Plug 'svermeulen/vim-yoink'
   Plug 'kien/ctrlp.vim'
   let g:ctrlp_map = '<leader>p'
-  Plug 'psliwka/vim-smoothie'
+  if v:version >= 802
+    Plug 'psliwka/vim-smoothie'
+  endif
   set nocscopeverbose
   Plug 'joe-skb7/cscope-maps'
   Plug 'junegunn/gv.vim'
