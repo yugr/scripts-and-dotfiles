@@ -13,7 +13,7 @@ Instructions for setting up new machines.
   * (Ubuntu) "Installed" tab in Ubuntu SW center
   * (Windows) "Programs and Features" in Settings
 * mouse highlight
-* Vim mode in browser
+* Vim mode in browser (vimium)
 
 # Additional packages
 
@@ -30,7 +30,7 @@ Install system packages
 * dos2unix manpages bash-completion ascii
 * bzip2 zip unzip
 * translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see [instructions](https://www.ostechnix.com/use-google-translate-commandline-linux))
-* (Cygwin) man-pages-posix
+* (Cygwin) man-pages-posix man-pages-linux
 
 and Python packages:
 ```
