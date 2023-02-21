@@ -21,7 +21,7 @@ Install system packages
 * gcc g++ gdb clang lld
 * make cmake ninja-build
 * autoconf automake autogen autopoint libtool
-* ctags vim-youcompleteme patch patchutils
+* universal-ctags vim-youcompleteme patch patchutils
 * bison flex
 * gawk python python-pip python3 python3-pip perl
 * git subversion
