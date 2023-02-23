@@ -262,10 +262,16 @@ if IsPluginLoaded('ctrlp.vim')
 
   " CtrlP-based header switching (https://github.com/kien/ctrlp.vim/issues/412)
   function! SwitchHeader(...)
-    let g:ctrlp_default_input = expand('%:t:r')
+    let l:ext = expand('%:e')
+    if l:ext == 'h' || l:ext == 'hpp' || l:ext == 'hh'
+      let l:ext = 'c'
+    elseif l:ext == 'c' || l:ext == 'cpp' || l:ext == 'cc'
+      let l:ext = 'h'
+    else
+      let l:ext = ''
+    endif
+    let g:ctrlp_default_input = expand('%:t:r') . "." . l:ext
     call ctrlp#init(0)
-    "call feedkeys(":CtrlP .\<CR>", "t")
-    "call feedkeys(expand('%:t:r'), "t")
     let l:split = get(a:, 1, "i")
     if l:split == 'h'
       call feedkeys("\<C-s>", "t")
