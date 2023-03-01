@@ -18,7 +18,7 @@ Instructions for setting up new machines.
 # Additional packages
 
 Install system packages
-* gcc g++ gdb clang lld
+* gcc g++ gdb gdb-multiarch clang lld
 * make cmake ninja-build
 * autoconf automake autogen autopoint libtool
 * universal-ctags vim-youcompleteme patch patchutils
