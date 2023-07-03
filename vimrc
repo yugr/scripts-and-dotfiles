@@ -156,6 +156,18 @@ function! MyToggleNumbering()
   endif
 endfunction
 
+function! MyToggleLTPairs()
+  if !exists("g:ToggleLTPairs")
+    let g:ToggleLTPairs = 0
+  endif
+  let g:ToggleLTPairs = ! g:ToggleLTPairs
+  if g:ToggleLTPairs
+    set matchpairs+=<:>
+  else
+    set matchpairs-=<:>
+  endif
+endfunction
+
 " File explorer
 let g:netrw_banner=0
 let g:netrw_liststyle= 3
