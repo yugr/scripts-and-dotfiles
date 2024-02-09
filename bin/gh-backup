@@ -15,7 +15,7 @@ fi
 
 curl --insecure "https://api.github.com/$CNTX/$NAME/repos?page=1&per_page=100" \
   | grep -e 'git_url*' \
-  | grep -v '\(gcc\|libarchive\|pylint\|libcxx\|uftrace\)\.git' \
+  | grep -v '\(gcc\|libarchive\|pylint\|libcxx\|uftrace\|llvm-project\|clangir\)\.git' \
   | sed 's!git://!https://!' \
   | cut -d \" -f 4 \
   | xargs -L1 git clone
