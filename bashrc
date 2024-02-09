@@ -190,12 +190,12 @@ reindex() {
 
 alias m='nice make' mi='nice make install' mck='nice make -k check'
 if test -d /proc; then
-  alias mp="nice make -j$(grep -c '^processor' /proc/cpuinfo)"
-  alias mpi="nice make -j$(grep -c '^processor' /proc/cpuinfo) install"
-  alias mpck="nice make -k -j$(grep -c '^processor' /proc/cpuinfo) check"
+  alias mp="nice make -j$(nproc)"
+  alias mpi="nice make -j$(nproc) install"
+  alias mpck="nice make -k -j$(nproc) check"
 fi
 alias md='mkdir -p'
-alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' vo='vim -o' vO='vim -O' vf='vimfind' vg='vimgrep'
+alias v=vim vd='vimdiff +":set hls" -c "set wrap" -c "wincmd w" -c "set wrap"' v-='vim -' sv='sudo vim' va='vimall' v8='vim -o' voo='vim -O' vf='vimfind' vg='vimgrep'
 alias f=find
 alias g=goodgrep gr='goodgrep -R' grh=grephere
 alias l='ls -CF' ll='ls -lh' la='ls -A' l1='ls -1'
