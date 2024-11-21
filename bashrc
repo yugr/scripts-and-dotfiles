@@ -209,10 +209,6 @@ alias -- -='cd -'
 if test "$(uname -o)" = Cygwin; then
   alias o=cygstart
 
-  pwdclip() {
-    pwd | tr -d '\r\n' | clip
-  }
-
   # Copy Bash/readline yanked buffer to Windows clipboard
   rl2clip() {
     local S
@@ -224,12 +220,6 @@ if test "$(uname -o)" = Cygwin; then
 
   pwdw() {
     cygpath -w $PWD
-  }
-  whichw() {
-    cygpath -w $(which "$1")
-  }
-  pwdwclip() {
-    pwdw | tr -d '\r\n' | clip
   }
 
   # Remove Cygwin's stuff from PATH (useful for running bat files in canonical environment)
@@ -249,17 +239,27 @@ if test "$(uname -o)" = Cygwin; then
 
     PATH="$NEWPATH"
   }
+elif test "$(uname -o)" = Cygwin -o -n "${WSL_DISTRO_NAME:-}"; then
+  alias o=xdg-open
+
+  pwdw() {
+    wslpath -w $PWD
+  }
 else
   alias o=xdg-open
 
   clip() {
     xclip -selection clipboard
   }
-
-  pwdclip() {
-    pwd | tr -d '\r\n' | clip
-  }
 fi
+
+pwdclip() {
+  pwd | tr -d '\r\n' | clip
+}
+
+pwdwclip() {
+  pwdw | tr -d '\r\n' | clip
+}
 
 # TODO: forward Git autocompletions
 alias gtco='git checkout'
