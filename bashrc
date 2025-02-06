@@ -52,7 +52,7 @@ vimfind() {
 }
 
 vimgrep() {
-  vim $(grep -r -l -i "$1" ${2:-.} | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$1"
+  vim $(grep -r -l "$1" ${2:-.} | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$1"
 }
 
 vimconflicts() {
