@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -eu
-set -x
+#set -x
 
 if test -n "${GOOGLE_BROWSER:-}"; then
   if ! test -x "$GOOGLE_BROWSER"; then
@@ -12,16 +12,28 @@ if test -n "${GOOGLE_BROWSER:-}"; then
 else
   for b in \
       '/usr/bin/firefox' \
-      'C:/Program Files (x86)\Mozilla Firefox\firefox.exe' \
-      'C:/Program Files\Mozilla Firefox\firefox.exe' \
+      'C:/Program Files (x86)/Mozilla Firefox/firefox.exe' \
+      'C:/Program Files/Mozilla Firefox/firefox.exe' \
+      '/mnt/c/Program Files (x86)/Mozilla Firefox/firefox.exe' \
+      '/mnt/c/Program Files/Mozilla Firefox/firefox.exe' \
       '/usr/bin/google-chrome' \
       'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe' \
-      'C:/Program Files/Google/Chrome/Application/chrome.exe'; do
+      'C:/Program Files/Google/Chrome/Application/chrome.exe' \
+      '/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe' \
+      '/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'; do
     if test -x "$b"; then
       BROWSER="$b"
       break
     fi
   done
+fi
+
+if test -z "${BROWSER:-}"; then
+  if test $(uname -o) = Cygwin; then
+    BROWSER=cygstart
+  else
+    BROWSER=xdg-open
+  fi
 fi
 
 if test $# -gt 0; then
