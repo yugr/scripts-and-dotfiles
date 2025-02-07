@@ -239,22 +239,18 @@ if test "$(uname -o)" = Cygwin; then
 
     PATH="$NEWPATH"
   }
-elif test -n "${WSL_DISTRO_NAME:-}"; then
-  alias o=xdg-open
-
-  pwdw() {
-    wslpath -w $PWD
-  }
-
-  clip() {
-    xclip -selection clipboard
-  }
 else
   alias o=xdg-open
 
   clip() {
     xclip -selection clipboard
   }
+
+  if test -n "${WSL_DISTRO_NAME:-}"; then
+    pwdw() {
+      wslpath -w $PWD
+    }
+  fi
 fi
 
 pwdclip() {
