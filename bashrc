@@ -149,19 +149,21 @@ newtab() {
 watch-network() {
   local DT_MIN=3
   local DT_MAX=60
-  local SITE=google.com
+  local TMP=$(mktemp)
+  local PING="wget -qO $TMP http://google.com"
 
   DT=$DT_MIN
   while true; do
-    if ! ping -n 1 $SITE; then
+    if ! $PING; then
       sleep 1
-      if ping -n 1 $SITE; then
+      if $PING; then
         echo 'Ignoring short connection loss...'
       else
         echo 'Connection lost'
         DT=$DT_MIN
       fi
     fi
+    rm -f $TMP
     echo "Sleeping for $DT seconds..."
     sleep $DT
     DT=$((DT * 2))
