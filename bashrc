@@ -88,21 +88,27 @@ yell() {
   esac
 }
 
-# Based on autojump
+# Inspired by autojump
 jc() {
-  local d=$(find -name "$1")
+  local d=$(find -path "**/$1" -type d | sed -e '/^$/d')
   case $(echo "$d" | wc -l) in
   1)
-    cd $d
+    cd "$d"
     ;;
   0)
     echo >&2 "Subdirectory '$1' not found"
     return 1
     ;;
   *)
-    echo "More than one '$1' subdirectory found:" >&2
-    (echo "$d" | sed 's/^/  /') >&2
-    return 1
+    echo "More than one '$1' subdirectory found:"
+    echo "$d" | nl
+    echo -n "Enter directory number: "
+    local n
+    if ! read n || ! echo "$n" | grep -q '^[0-9]\+$'; then
+      echo "Unexpected input: '$n'" >&2
+      return 1
+    fi
+    cd $(echo "$d" | tail -n +$n | head -1)
     ;;
   esac
 }
