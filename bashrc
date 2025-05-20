@@ -38,7 +38,7 @@ PROMPT_COMMAND=run_on_prompt_command
 
 # Ignore common trash
 goodgrep() {
-  grep --exclude=tags --exclude=TAGS --exclude=rusty-tags.vi --exclude=cscope\* --exclude-dir .svn --exclude-dir .git "$@"
+  grep --exclude=tags --exclude=TAGS --exclude=rusty-tags.vi --exclude=cscope\* --exclude-dir .svn --exclude-dir .git -s "$@"
 }
 
 grephere() {
