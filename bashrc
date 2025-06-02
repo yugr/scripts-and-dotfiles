@@ -52,7 +52,9 @@ vimfind() {
 }
 
 vimgrep() {
-  vim $(grep -r -l "$1" ${2:-.} | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$1"
+  local p="$1"
+  shift
+  vim $(grep -r -l "$p" "$@" | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$p"
 }
 
 vimconflicts() {
@@ -88,8 +90,8 @@ yell() {
   esac
 }
 
-# Inspired by autojump
-jc() {
+# Jump to directory (inspired by autojump)
+jd() {
   local d=$(find -path "**/$1" -type d | sed -e '/^$/d')
   case $(echo "$d" | wc -l) in
   1)
@@ -113,24 +115,15 @@ jc() {
   esac
 }
 
-# "fn [$D] $P" -> "find [$D] -name $P"
+# "fn [$D...] $P" -> "find [$D...] -name $P"
 fn() {
   local D
-  case $# in
-  1)
-    D=.
-    ;;
-  2)
-    D="$1"
+  while test $# -gt 1; do
+    D="${D:-} '$1'"
     shift
-    ;;
-  *)
-    echo >&2 "Usage: fn DIR PATTERN"
-    return 1
-    ;;
-  esac
-
-  find "$D" -name "$1"
+  done
+  # Using eval to allow whitespaces in names
+  eval "find $D -name '$1'"
 }
 
 # Opens new tab in Xterm
