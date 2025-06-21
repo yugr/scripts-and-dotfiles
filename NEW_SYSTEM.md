@@ -39,15 +39,6 @@ $ sudo pip3 install virtualenv pylint tox
 
 # Git setup
 
-```
-$ git config --global user.name 'User Name'
-$ git config --global user.email user@server.com
-$ git config --global merge.tool vimdiff
-$ git config --global merge.conflictstyle diff3
-$ git config --global mergetool.prompt false
-$ git config --global credential.helper store
-```
-
 To reset password
 ```
 $ git config --global --unset user.password
