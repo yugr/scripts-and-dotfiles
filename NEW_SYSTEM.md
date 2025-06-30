@@ -15,22 +15,21 @@ Instructions for setting up new machines.
 * mouse highlight
 * Vim mode in browser (vimium)
 
-# Additional packages
+# Ubuntu setup
 
 Install system packages
-* gcc g++ gdb gdb-multiarch clang lld
+* gcc g++ gdb gdb-multiarch clang lld mold
 * make cmake ninja-build
 * autoconf automake autogen autopoint libtool
 * universal-ctags vim-youcompleteme patch patchutils
 * bison flex
-* gawk python python-pip python3 python3-pip perl
+* gawk python3 python3-pip perl
 * git subversion
-* wget curl openssh
-* screen tmux vim-gtk
+* wget curl openssh-client
+* screen tmux vim-gtk3
 * dos2unix manpages bash-completion ascii
 * bzip2 zip unzip
 * translate-shell (on Cygwin install manually from https://github.com/soimort/translate-shell , see [instructions](https://www.ostechnix.com/use-google-translate-commandline-linux))
-* (Cygwin) man-pages-posix man-pages-linux
 
 and Python packages:
 ```
@@ -57,6 +56,7 @@ Install packages:
 * [apt-cyg](https://github.com/transcode-open/apt-cyg)
 * [Sysinternals](https://docs.microsoft.com/en-us/sysinternals)
 * chere (for SetupContextMenu.reg)
+* man-pages-posix man-pages-linux
 * rar archiver:
 ```
 wget http://www.rarlab.com/rar/unrarsrc-5.1.7.tar.gz
@@ -82,5 +82,5 @@ $ cron-config
 * Setup clipboard and shared folders in VM settings
 * Add your user to vboxsf group:
 ```
-$ sudo adduser $USER vboxsf
+$ sudo usermod -aG vboxsf $USER
 ```
