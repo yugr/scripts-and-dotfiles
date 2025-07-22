@@ -135,7 +135,7 @@ set cursorline
 
 " Highlight 80 columns
 au BufReadPost,BufNewFile *
-  \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|vim\|sh\)$' |
+  \ if &ft=~'^\(c\|cpp\|java\|python\|perl\|rust\|vim\|sh\)$' |
   \ set colorcolumn=80 | endif
 
 " Enable mouse
