@@ -54,7 +54,7 @@ vimfind() {
 vimgrep() {
   local p="$1"
   shift
-  vim $(grep -r -l "$p" "$@" | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$p"
+  vim $(grep -rlI "$p" "$@" | grep -v '\<tags\>\|\.git') +':set ic hls' +1 +/"$p"
 }
 
 vimconflicts() {
