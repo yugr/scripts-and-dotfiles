@@ -1,0 +1,93 @@
+#!/bin/sh
+
+set -eu
+#set -x
+
+# Copyright 2026 Yury Gribov
+# 
+# Use of this source code is governed by MIT license that can be
+# found in the LICENSE.txt file.
+
+set -eu
+
+usage() {
+  cat <<EOF
+Usage: $(basename $0) [OPT]... [FILE]...
+Output lines of file after pattern.
+
+Options:
+  -i              Include pattern in output.
+  -r P            Pattern to start at.
+  --help, -h      Print help and exit.
+  --verbose, -v   Print diagnostic info
+                  (can be specified more than once).
+
+Examples:
+  \$ $(basename $0) -r $(USER) /etc/passwd
+EOF
+  exit
+}
+
+usage_short() {
+  cat >&2 <<EOF
+Usage: $(basename $0) [OPT]... ARG
+Run \`$(basename $0) -h' for more details.
+EOF
+  exit 1
+}
+
+me=$(basename $0)
+
+ARGS=$(getopt -o 'ir:hv' -n "$(basename $0)" -- "$@")
+eval set -- "$ARGS"
+
+INC=
+P=
+V=0
+
+while true; do
+  case "$1" in
+    -i)
+      INC=1
+      shift
+      ;;
+    -r)
+      P="$2"
+      shift 2
+      ;;
+    -h | --help)
+      usage
+      ;;
+    -v | --verbose)
+      V=$((V + 1))
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -*)
+      error "unknown option: $1"
+      ;;
+    *)
+      error 'internal error'
+      ;;
+  esac
+done
+
+if test $# = 0; then
+  ARGS=-
+else
+  ARGS="$@"
+fi
+
+for f in $ARGS; do
+  if test $# -gt 1; then
+    echo "==> $f <=="
+  fi
+  if test -z "$INC"; then
+    awk 'BEGIN {p=0} p {print} /'$P'/ {p=1}' $f
+  else
+    awk 'BEGIN {p=0} /'$P'/ {p=1} p {print}' $f
+  fi
+done
