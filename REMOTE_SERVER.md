@@ -1,5 +1,8 @@
 Typical installation instructions for new server.
 
+During all modifications keep current session open and
+test from separate window (in case something goes wrong).
+
 # Protections
 
 Install fail2ban:
@@ -36,6 +39,21 @@ $ sudo systemctl restart ssh
 ```
 
 All following commands should be done by new user.
+
+# More protections
+
+Install publickey for new user via
+```
+$ ssh-copy-id MYUSER@MYSERVER
+```
+(on host machine).
+
+Then [disable password login](https://askubuntu.com/questions/1516262/why-is-50-cloud-init-conf-created)
+on server:
+```
+$ echo 'PasswordAuthentication no' | sudo tee /etc/ssh/sshd_config.d/00-no-passwords.conf
+```
+and restart sshd.
 
 # Disable GUI
 
