@@ -6,7 +6,26 @@ Install fail2ban:
 ```
 # apt install fail2ban
 ```
-and Set `DEFAULT` bantime to 30m in `/etc/fail2ban/jail.conf`.
+and set
+  - `DEFAULT` bantime to 30m
+  - `maxretry` to 2
+
+in `/etc/fail2ban/jail.conf` (run `sudo fail2ban-client reload`
+if you ever need to update it later).
+
+Change sshd port to some [arbitrary `uint16_t` number](https://www.convertsimple.com/random-port-generator/)
+by editing `/etc/ssh/sshd_config`.  If firewall is running,
+may need to update its config too e.g. for ufw:
+```
+$ sudo ufw allow 2222/tcp
+```
+Finally run
+```
+# This may work ...
+$ sudo systemctl restart sshd.service
+# ... but Ubuntu has this
+$ sudo systemctl restart ssh
+```
 
 # Make non-root user
 
@@ -17,6 +36,12 @@ and Set `DEFAULT` bantime to 30m in `/etc/fail2ban/jail.conf`.
 ```
 
 All following commands should be done by new user.
+
+# Disable GUI
+
+```
+sudo systemctl set-default multi-user
+```
 
 # Install packages
 
