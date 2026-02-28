@@ -11,7 +11,7 @@ Install fail2ban:
 ```
 and set
   - `DEFAULT` bantime to 30m
-  - `maxretry` to 2
+  - `maxretry` to 3
 
 in `/etc/fail2ban/jail.conf` (run `sudo fail2ban-client reload`
 if you ever need to update it later).
@@ -49,9 +49,9 @@ $ ssh-copy-id MYUSER@MYSERVER
 (on host machine).
 
 Then [disable password login](https://askubuntu.com/questions/1516262/why-is-50-cloud-init-conf-created)
-on server:
+and root login on server:
 ```
-$ echo 'PasswordAuthentication no' | sudo tee /etc/ssh/sshd_config.d/00-no-passwords.conf
+$ echo -e 'PasswordAuthentication no\nPermitRootLogin no' | sudo tee /etc/ssh/sshd_config.d/00-no-passwords.conf
 ```
 and restart sshd.
 
