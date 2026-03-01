@@ -63,7 +63,7 @@ sudo systemctl set-default multi-user
 
 # Install packages
 
-Minimal list:
+Packages for development:
 ```
-$ sudo apt install git gcc g++ make cmake ninja-build autoconf automake autogen autopoint libtool vim gawk python3 perl git wget curl screen bzip2 zip unzip
+$ sudo apt install git gcc g++ lld make cmake ninja-build autoconf automake autogen autopoint libtool vim gawk python3 perl git wget curl screen bzip2 zip unzip
 ```
