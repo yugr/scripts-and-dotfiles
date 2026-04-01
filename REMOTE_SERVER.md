@@ -26,8 +26,10 @@ Finally run
 ```
 # This may work ...
 $ sudo systemctl restart sshd.service
-# ... but Ubuntu has this
+# ... but older Ubuntu's have this:
 $ sudo systemctl restart ssh
+# ... and Ubuntu 24+ has this:
+$ sudo systemctl daemon-reload && sudo systemctl restart ssh.socket
 ```
 
 # Make non-root user
