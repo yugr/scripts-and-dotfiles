@@ -7,6 +7,9 @@ Some relevant materials:
 You will need to replace these with values for your setup:
   - `SERVER` - address of your server (e.g. `myserver.com`)
 
+I assume that no firewall is installed,
+otherwise necessary ports will need to be opened.
+
 # Setup DNS for your server
 
 Can use free 2-nd level DNS e.g. at https://ydns.com
@@ -15,13 +18,13 @@ Can use free 2-nd level DNS e.g. at https://ydns.com
 
 First create a dedicated user:
 ```
-sudo adduser --system tuwunel --group --disabled-login --no-create-home
+$ sudo adduser --system tuwunel --group --disabled-login --no-create-home
 ```
 
 Then install tuwunel:
 ```
-wget https://github.com/matrix-construct/tuwunel/releases/download/v1.5.1/v1.5.1-release-all-x86_64-v3-linux-gnu-tuwunel.deb
-sudo dpkg -i v1.5.1-release-all-x86_64-v3-linux-gnu-tuwunel.deb 
+$ wget https://github.com/matrix-construct/tuwunel/releases/download/v1.5.1/v1.5.1-release-all-x86_64-v3-linux-gnu-tuwunel.deb
+$ sudo dpkg -i v1.5.1-release-all-x86_64-v3-linux-gnu-tuwunel.deb 
 ```
 (check for latest release on Tuwunel site).
 
@@ -40,23 +43,23 @@ in `/etc/tuwunel/tuwunel.toml`.
 
 Set perms for tuwunel user:
 ```
-sudo chown -R root:root /etc/tuwunel
-sudo chmod -R 755 /etc/tuwunel
-sudo mkdir -p /var/lib/tuwunel/
-sudo chown -R tuwunel:tuwunel /var/lib/tuwunel/
-sudo chmod 700 /var/lib/tuwunel/
+$ sudo chown -R root:root /etc/tuwunel
+$ sudo chmod -R 755 /etc/tuwunel
+$ sudo mkdir -p /var/lib/tuwunel/
+$ sudo chown -R tuwunel:tuwunel /var/lib/tuwunel/
+$ sudo chmod 700 /var/lib/tuwunel/
 ```
 
 Now start the service:
 ```
-sudo systemctl start tuwunel
+$ sudo systemctl start tuwunel
 ```
 
 # Setup reverse proxy
 
 Install caddy:
 ```
-sudo apt install caddy
+$ sudo apt install caddy
 ```
 
 Add
@@ -69,12 +72,12 @@ in `/etc/caddy/Caddyfile`.
 
 Start service:
 ```
-sudo systemctl enable --now caddy
+$ sudo systemctl enable --now caddy
 ```
 
 Verify that it works:
 ```
-curl https://SERVER/_tuwunel/server_version
+$ curl https://SERVER/_tuwunel/server_version
 ```
 
 # Add users
@@ -125,12 +128,12 @@ $ sudo docker run -d --network=host -v $(pwd)/coturn.conf:/etc/coturn/turnserver
 
 Restart tuwunel
 ```
-sudo systemctl restart tuwunel
+$ sudo systemctl restart tuwunel
 ```
 
 Verify that it works:
 ```
-curl https://SERVER/_matrix/client/v3/voip/turnServer
+$ curl https://SERVER/_matrix/client/v3/voip/turnServer
 ```
 
 # Setup Element Call
