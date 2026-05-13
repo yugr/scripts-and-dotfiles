@@ -1,0 +1,97 @@
+# ============================================================
+# agent_env – Docker image for agent-friendly environment
+#
+# Build (~5 min):
+#   docker build \
+#     -t agent_env \
+#     -f AgentDockerfile \
+#     --build-arg HOST_UID=$(id -u) \
+#     --build-arg HOST_GID=$(id -g) \
+#     .
+#
+# Run:
+#   docker run -dit \
+#     --name agent_env \
+#     -e ANTHROPIC_API_KEY="sk-..." \
+#     [-e ANTHROPIC_AUTH_TOKEN="..."] \
+#     [-e ANTHROPIC_BASE_URL="https://..."] \
+#     -v $PWD:/work
+#     agent_env
+#
+# Volumes:
+#   /work
+# ============================================================
+
+FROM ubuntu:24.04
+
+LABEL description="Agent-friendly environment based on Ubuntu"
+
+# Common tools for agents
+# TODO: clang clang-format ?
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Common tools
+    bc \
+    curl \
+    diffutils \
+    file \
+    lsof \
+    patch \
+    procps \
+    tar \
+    unzip \
+    wget \
+    xxd \
+    xz-utils \
+    zstd \
+    # Dev tools
+    build-essential \
+    cmake \
+    gdb \
+    git git-lfs \
+    ninja-build \
+    npm \
+    openssl \
+    python3 python3-pip python3-venv \
+    strace \
+    # Search tools
+    fzf \
+    jq \
+    ripgrep \
+    tree \
+    # User tools
+    screen \
+    sudo \
+    tmux \
+    vim \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# To be supplied at Docker creation time
+
+ARG HOST_UID
+ARG HOST_GID
+ARG PASS="123"
+
+# Setup user (match host ids for easier interop)
+
+RUN usermod -aG sudo -u $HOST_UID -g $HOST_GID -p $(openssl passwd -1 "$PASS") ubuntu \
+ && mkdir -p /work \
+ && chown ubuntu:ubuntu /work
+
+VOLUME /work
+
+USER ubuntu
+
+WORKDIR /work
+
+# Install clients
+
+RUN curl -fsSL https://claude.ai/install.sh | bash \
+ && echo 'PATH="$HOME/.local/bin:$PATH"' >> $HOME/.bashrc
+
+RUN curl -fsSL https://opencode.ai/install | bash
+
+CMD ["tail", "-f", "/dev/null"]
