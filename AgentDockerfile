@@ -1,5 +1,8 @@
 # ============================================================
-# agent_env – Docker image for agent-friendly environment
+# agent_env – Docker image with agent-friendly environment
+#
+# It installs all tools used by Claude and
+# additional tools for C++/Python development.
 #
 # Build (~5 min):
 #   docker build \
